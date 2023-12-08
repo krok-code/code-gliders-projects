@@ -1,21 +1,96 @@
 .header {
-  padding: 20px 0;
+    padding-top: 18px;
+    padding-bottom: 36px;
+    background-color: #E8E8E2;
 }
 
-.nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+.header-container {
+    padding: 0px;
+    width: 100%;
 }
 
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+.header-navigation {
+    width: 100%;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
+.header-list {
+    display: flex;
+   
+    align-items: center;
+    width: 100%;
+}
+
+.header-logo {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    margin-right: auto;
+
+}
+
+.header-logo-url {
+    color: #010101;
+    font-family: "Quincy CF";
+    font-size: 18px;
+    font-style: normal;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+.header-home {
+    display: flex;
+    border-radius: 30px;
+    width: 77px;
+    height: 38px;
+    color: #E8E8E2;
+    background-color: #6D8434;
+    font-family: "Neue Montreal Medium";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+   
+}
+
+.header-home:hover,
+.header-home:focus {
+    background-color: #586F1F;
+}
+
+.header-logo-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background-color: #6D8434;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    ;
+    padding: 6px;
+}
+
+
+}
+
+.header-icon-card {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    background-color: #6D8434;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    padding: 10px;
+}
+
+.header-icon-card:hover,
+.header-icon-card:focus {
+    background-color: #6D8434;
+}
+
+.header-card-url {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
