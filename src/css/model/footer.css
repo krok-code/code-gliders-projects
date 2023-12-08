@@ -54,7 +54,8 @@ a {
     flex-shrink: 0;
     background-color: #E8E8E2;
     border-radius: 50%;
-    fill: #6D8434 padding: 6px;
+    fill: #6D8434;
+     padding: 6px;
     transition: all 0.3s;
 }
 
