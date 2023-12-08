@@ -19,7 +19,7 @@
 
 
 
-@media only screen and (min-width: 768px) and (max-width: 1440px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
 
     /* .container {
         min-width: 704px;
@@ -182,9 +182,10 @@
     }
 
 
-    .form-wrap {
+    .information-footer {
         padding-top: 40px;
         width: 410px;
+        padding-bottom: 0;
         /* margin-right: 0 auto; */
     }
 
@@ -199,10 +200,12 @@
         display: flex;
         /* flex-direction: row; */
         gap: 148px;
+        margin-top: 0;
+        padding-bottom: 0;
         /* justify-content: space-between; */
     }
 
-    .information-footer {
+    .form-wrap {
         margin-top: 40px;
         width: 336px;
         margin-bottom: 0;
@@ -236,6 +239,7 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: 0;
+        margin-top: 128px;
     }
 
     .footer-text-last {
