@@ -56,3 +56,21 @@ img {
 }
 
 
+.organic-food-icon {
+  position: absolute;
+  top: -7px;
+  right: 8px;
+  z-index: 99;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .hero-img {
+    width: 335px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .hero-text {
+    width: 292px;
+    height: 55px;
+  }
+}
