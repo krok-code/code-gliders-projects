@@ -11,7 +11,7 @@ a {
  */
 
 .footer {
-    background: #6D8434
+    background: #6D8434;
 }
 
 /* .container {
@@ -62,7 +62,8 @@ a {
 .svg-logo-footer:hover,
 .svg-logo-footer:focus {
     fill: #E8E8E2;
-    background-color: #6D8434 border: 1px solid #E8E8E2;
+    background-color: #6D8434; 
+    border: 1px solid #E8E8E2;
 
 }
 
@@ -286,6 +287,7 @@ line-height: 1.29; */
     .submit-btn {
         width: 335px;
     }
+}
 
     @media only screen and (min-width: 768px) and (max-width: 1440px) {
 
