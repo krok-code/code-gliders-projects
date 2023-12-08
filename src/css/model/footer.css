@@ -42,7 +42,7 @@ a {
     font-size: 18px;
     font-style: normal;
     font-weight: 900;
-    line-height: 20px;
+    /* line-height: 20px; */
     letter-spacing: -0.36px;
     display: flex;
     gap: 8px;
@@ -219,7 +219,8 @@ line-height: 1.29; */
 
 
 .footer-policy {
-    padding-bottom: 80px;
+    padding-bottom: 20px;
+    
     /* color: var(--background-color-main);
     font-size: 14px;
     font-weight: 400;
@@ -259,10 +260,11 @@ line-height: 1.29; */
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29;
-    margin-right: 8px;
+   
 }
 
 .footer-agree-2 {
+    margin-left: 8px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29;
@@ -270,9 +272,11 @@ line-height: 1.29; */
     /* transition: all 0.4s; */
 }
 
-.footer-using-1 {}
+.footer-using {}
 
-.footer-using-2 {
+.footer-using {
+    padding-top: 8px;
+    
     /* text-align: left; */
 }
 
