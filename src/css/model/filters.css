@@ -1,9 +1,11 @@
 .filters {
+  /* background-color: var(--primary-bg-color); */
   padding-top: 37px;
   padding-bottom: 20px;
 }
 
 .filters-text {
+  color: var(--span-info-color);
   margin-bottom: 10px;
   font-size: 14px;
 }
@@ -18,15 +20,16 @@
 .filters-input::placeholder {
   color: #010101;
 
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
+  font-family: "Neue Montreal Regular";
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px
 }
 
 .filters-input,
 .filters-categories,
-.filters-allTypes {
+.filters-allTypes  {
   cursor: pointer;
 }
 
@@ -41,11 +44,17 @@
   font-size: 14px;
   padding: 14px 20px;
   border-radius: 30px;
+  border: 1px solid var(--span-info-color);
   background-color: transparent;
 }
 
 .filters-allTypes {
+  background-color: var(--card-bg-color);
   border-color: transparent;
+}
+
+.filters-input:focus {
+  outline: 1px solid var(--secondary-bg-green-color);
 }
 
 .filters-search-btn {
@@ -61,26 +70,29 @@
 }
 
 .filters-down-svg {
+  fill: var(--primary-bg-color);
+  stroke: var( --title-black-text-color);
   position: absolute;
   top: 50%;
   right: 10px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   transition: all 0.3s;
 }
 
 .rotate {
-  transform: translate(-50%, -50%) rotate(180deg);
+  transform: translate(-50%,-50%) rotate(180deg);
 }
 
 .filters-categories-list,
 .filters-allTypes-list {
-  position: absolute;
-  top: 56px;
-  left: 0;
-  z-index: 2;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    z-index: 2;
   width: 100%;
   padding: 14px 20px;
   border-radius: 15px;
+  background: var(--white-color);
   box-shadow: 0px 4px 11.2125px 0px rgba(0, 0, 0, 0.04),
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
   visibility: hidden;
@@ -95,12 +107,18 @@
 .list-active {
   visibility: visible;
   opacity: 1;
-  border: 1px solid;
+  border: 1px solid var(--span-info-color);
 }
 
 .filters-categories-item,
 .filters-allTypes-item {
-  margin-bottom: 9px;
-  font-size: 14px;
-  cursor: pointer;
+    margin-bottom: 9px;
+    font-size: 14px;
+    color: var(--filter-color);
+    cursor: pointer;
+}
+
+.filters-categories-item:hover,
+.filters-allTypes-item:hover {
+  color: var(--title-black-text-color);
 }
