@@ -51,7 +51,7 @@
     }
     .subscribe-text{
         width: 427px;
-        padding-bottom: 80px;
+        padding-bottom: 0;
         margin-top: 0;
             
     }
@@ -64,8 +64,8 @@
         }
 
         .information-footer {
-            padding-bottom: 64px;
-                padding-top: 40px;
+        padding-bottom: 64px;
+        padding-top: 40px;
         }
 
 
@@ -93,6 +93,7 @@
     }
     .input-subscription {
         margin-bottom: 20px;
+       
     }
 
     .input-subscription::placeholder {
@@ -103,7 +104,7 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
-        color: rgba(1, 1, 1, 0.50);
+        color: #E8E8E2;
         font-size: 16px;
         font-family: 'Neue Montreal Regular';
     }
