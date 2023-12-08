@@ -4,22 +4,27 @@
   | default @import url()
   |============================
 */
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
-
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@import url('./standart/modern-normalize.css');
+@import url('./standart/reset.css');
+@import url('./root/root.css');
+@import url('./standart/base.css');
+@import url('./standart/container.css');
+@import url('./model/cart-body.css');
+@import url('./model/filters.css');
+@import url('./model/footer.css');
+@import url('./model/header.css');
+@import url('./model/hero.css');
+@import url('./model/order-modal.css');
+@import url('./model/paginations.css');
+@import url('./model/product-list.css');
+@import url('./model/product-modal.css');
+@import url('./model/sorry.css');
+@import url('./media/media-cart-body.css');
+@import url('./media/media-filters.css');
+@import url('./media/media-footer.css');
+@import url('./media/media-header.css');
+@import url('./media/media-hero.css');
+@import url('./media/media-order-modal.css');
+@import url('./media/media-paginations.css');
+@import url('./media/media-product-modal.css');
+@import url('./media/media-sorry.css');
