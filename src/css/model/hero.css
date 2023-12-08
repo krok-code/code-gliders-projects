@@ -114,3 +114,41 @@ img {
     right: 10px;
   }
 }
+
+
+
+@media only screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 39px;
+  }
+  .slider-container {
+    min-height: 370px;
+  }
+
+  .hero-img {
+    width: 1240px;
+    height: 100%;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    margin-bottom: 20px;
+    width: 1042px;
+    line-height: 1;
+    letter-spacing: -0.022em;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    width: 492px;
+    height: 48px;
+    line-height: 1.33;
+    margin-bottom: 40px;
+  }
+
+  .organic-food-icon {
+    position: absolute;
+    top: -50px;
+    right: 20px;
+  }
+}
