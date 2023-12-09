@@ -1,4 +1,4 @@
-import localStorageAPI from './local-storage.js';
+import localStorageAPI from './localStorage.js';
 
 export function getLength() {
   const arrFromLS = localStorageAPI.load('product');
