@@ -1,5 +1,6 @@
 import './js/api.js';
 import './js/local-storage.js';
+import './js/popular-discount.js';
 import './js/main-page.js';
 import './js/header.js';
 import './js/counter.js';
@@ -11,4 +12,3 @@ import './js/model/modal-products.js';
 import './js/footer.js';
 import './js/model/sorry.js';
 import './js/actions-cards.js';
-import './js/popular-discount.js';

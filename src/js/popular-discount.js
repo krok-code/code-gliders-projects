@@ -1,3 +1,4 @@
+import { addToCart } from './actions-cards';
 import { fetchDiscountProducts, fetchPopularProducts } from './api';
 
 const refs = {
@@ -23,7 +24,8 @@ async function fetchPopular() {
     cardBtn.forEach(card => {
       card.addEventListener('click', e => {
         e.stopPropagation();
-        console.log('hello');
+        const productId = e.currentTarget.getAttribute('data-product-id');
+        addToCart(productId);
       });
     });
   } catch (error) {
@@ -55,7 +57,7 @@ function createPopularList(array) {
           >
         </p>
       </div>
-      <button type="button" class="populat_card_btn">
+      <button type="button" class="populat_card_btn" data-product-id='${card._id}'>
         <svg class="order_btn" width="12" height="12">
           <use href="./img/icons.svg#shopping-cart"></use>
         </svg>
@@ -82,7 +84,8 @@ async function fetchDiscount() {
     cardBtn.forEach(card => {
       card.addEventListener('click', e => {
         e.stopPropagation();
-        console.log('hello discount');
+        const productId = e.currentTarget.getAttribute('data-product-id');
+        addToCart(productId);
       });
     });
   } catch (error) {
@@ -114,7 +117,7 @@ function createDiscountList(array) {
         <h3 class="card_title--discount card_title">${card.name}</h3>
         <span class="card_title--price card_title ">${card.price}</span>
 
-        <button type="button" class="discount_card_btn">
+        <button type="button" class="discount_card_btn" data-product-id='${card._id}'>
           <svg  width="18" height="18">
           <use href="./img/icons.svg#shopping-cart"></use>
           </svg>

@@ -136,6 +136,6 @@
 .card_title--price {
   margin: 0;
 }
-.discount_card_btn svg {
+.discount_card_btn > svg {
   fill: var(--primary-bg-color);
 }
