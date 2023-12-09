@@ -12,6 +12,20 @@ async function fetchPopular() {
   try {
     const { data } = await fetchPopularProducts();
     refs.popular.insertAdjacentHTML('beforeend', createPopularList(data));
+    const cards = document.querySelectorAll('.popular_card_item');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        console.log('click cadrs');
+      });
+    });
+
+    const cardBtn = document.querySelectorAll('.populat_card_btn');
+    cardBtn.forEach(card => {
+      card.addEventListener('click', e => {
+        e.stopPropagation();
+        console.log('hello');
+      });
+    });
   } catch (error) {
     console.log(error);
   }
@@ -20,7 +34,7 @@ async function fetchPopular() {
 function createPopularList(array) {
   return array
     .map(
-      card => ` <li class="card_item">
+      card => ` <li class="popular_card_item">
       <div class="card_img">
         <img
           src=${card.img}
@@ -41,7 +55,7 @@ function createPopularList(array) {
           >
         </p>
       </div>
-      <button type="button" class="card_btn">
+      <button type="button" class="populat_card_btn">
         <svg class="order_btn" width="12" height="12">
           <use href="./img/icons.svg#shopping-cart"></use>
         </svg>
@@ -58,6 +72,19 @@ async function fetchDiscount() {
       'beforeend',
       createDiscountList(data.slice(0, 2))
     );
+    const cards = document.querySelectorAll('.discount_card_item');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        console.log('click cadrs');
+      });
+    });
+    const cardBtn = document.querySelectorAll('.discount_card_btn');
+    cardBtn.forEach(card => {
+      card.addEventListener('click', e => {
+        e.stopPropagation();
+        console.log('hello discount');
+      });
+    });
   } catch (error) {
     console.log(error);
   }

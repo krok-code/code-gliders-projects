@@ -17,7 +17,7 @@
   gap: 13px;
   flex-wrap: wrap;
 }
-.card_item {
+.popular_card_item {
   padding: 12px;
   display: flex;
   width: 335px;
@@ -68,7 +68,7 @@
 .card_el {
   color: var(--span-info-color);
 }
-.card_btn {
+.populat_card_btn {
   background-color: var(--primary-bg-color);
   display: flex;
   justify-content: center;
