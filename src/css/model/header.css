@@ -64,3 +64,44 @@
 .header-home:focus {
     background-color: #586F1F;
 }
+.header-logo-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background-color: #6D8434;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    ;
+    padding: 6px;
+}
+
+.header-logo-icon:hover,
+.header-logo-icon:focus {
+    background-color: #6D8434;
+    fill: #E8E8E2;
+}
+
+.header-icon-card {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    background-color: #6D8434;
+    border-radius: 50%;
+    fill: #E8E8E2;
+    padding: 10px;
+}
+
+.header-icon-card:hover,
+.header-icon-card:focus {
+    background-color: #6D8434;
+}
+
+.header-card-url {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
