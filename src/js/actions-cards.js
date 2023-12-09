@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 // Функція, яка викликається при додаванні продукту до кошика
 export async function addToCart(productId) {
   // Знаходимо кнопку, яка відповідає за додавання продукту
-  console.log('hello');
   const button = document.querySelector(
     `.cart-button[data-product-id="${productId}"]`
   );
@@ -42,18 +41,18 @@ export async function addToCart(productId) {
   }
 }
 
-  // Функція для перевірки наявності товару в кошику та використання localStorage
-  export async function checkIfInCart(productId) {
-    try {
-      // Отримуємо дані з localStorage
-      const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+// Функція для перевірки наявності товару в кошику та використання localStorage
+export async function checkIfInCart(productId) {
+  try {
+    // Отримуємо дані з localStorage
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-      // Перевіряємо, чи є товар в кошику
-      const isInCart = cartData.some(item => item.productId === productId);
+    // Перевіряємо, чи є товар в кошику
+    const isInCart = cartData.some(item => item.productId === productId);
 
-      return isInCart;
-    } catch (error) {
-      console.error('Error checking if product is in cart:', error);
-      return false;
-    }
+    return isInCart;
+  } catch (error) {
+    console.error('Error checking if product is in cart:', error);
+    return false;
   }
+}
