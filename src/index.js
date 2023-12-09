@@ -11,3 +11,4 @@ import './js/model/modal-products.js';
 import './js/footer.js';
 import './js/model/sorry.js';
 import './js/actions-cards.js';
+import './js/popular-discount.js';
