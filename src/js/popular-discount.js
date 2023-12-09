@@ -45,7 +45,7 @@ function createPopularList(array) {
       </div>
       <button type="button" class="card_btn">
         <svg class="order_btn" width="12" height="12">
-          <use href="../svg/icons.svg#icon-cart-hover"></use>
+          <use href="../img/icons.svg#shopping-cart"></use>
         </svg>
       </button>
     </li>`
@@ -80,7 +80,10 @@ function createDiscountList(array) {
         />
         </div>
         <div class="svg_box">
-          <svg></svg>
+          <svg width="54" height="54">
+            <use href="../img/icons.svg#discount">
+            </use>
+          </svg>
         </div>
 
       <div class="discount_card_elements">
@@ -89,7 +92,7 @@ function createDiscountList(array) {
 
         <button type="button" class="discount_card_btn">
           <svg class="discount_order_btn" width="12" height="12">
-          <use href="../svg/icons.svg#icon-cart-hover"></use>
+          <use href="../img/icons.svg#shopping-cart"></use>
           </svg>
         </button>
           
