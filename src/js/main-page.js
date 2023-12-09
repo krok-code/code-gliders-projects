@@ -94,8 +94,6 @@ document.addEventListener('DOMContentLoaded', async () => {
    `;
   }
 
-  // Все все що вище вже запущено////
-
   // Функція для відображення списку продуктів
   async function renderProductList(products) {
     // Очищаємо вміст елементу з id="productList"
@@ -110,8 +108,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       productListElement.insertAdjacentHTML('beforeend', productCard);
     }
   }
-
-  /////////////////
 
   productListElement.addEventListener('click', async event => {
     // Перевіряємо, чи клікнуто по елементу з класом "cart-button"
