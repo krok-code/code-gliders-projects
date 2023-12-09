@@ -80,7 +80,7 @@ function createDiscountList(array) {
         />
         </div>
         <div class="svg_box">
-          <svg width="54" height="54">
+          <svg width="60" height="60">
             <use href="../img/icons.svg#discount">
             </use>
           </svg>
@@ -91,7 +91,7 @@ function createDiscountList(array) {
         <span class="card_title--price card_title ">${card.price}</span>
 
         <button type="button" class="discount_card_btn">
-          <svg class="discount_order_btn" width="12" height="12">
+          <svg  width="18" height="18">
           <use href="../img/icons.svg#shopping-cart"></use>
           </svg>
         </button>
