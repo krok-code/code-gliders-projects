@@ -15,7 +15,7 @@
 
 .header-list {
     display: flex;
-   
+    gap: 6px;
     align-items: center;
     width: 100%;
 }
@@ -33,12 +33,20 @@
     font-family: "Quincy CF";
     font-size: 18px;
     font-style: normal;
+    font-weight: 900;
+    line-height: 20px;
+    letter-spacing: -0.36px;
+    display: flex;
+    gap: 8px;
     margin-right: auto;
     align-items: center;
     justify-content: center;
 }
+
 .header-home {
     display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 30px;
     width: 77px;
     height: 38px;
@@ -48,14 +56,14 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-   
+    line-height: 18px;
+    /* 128.571% */
 }
 
 .header-home:hover,
 .header-home:focus {
     background-color: #586F1F;
 }
-
 .header-logo-icon {
     width: 28px;
     height: 28px;
@@ -67,7 +75,10 @@
     padding: 6px;
 }
 
-
+.header-logo-icon:hover,
+.header-logo-icon:focus {
+    background-color: #6D8434;
+    fill: #E8E8E2;
 }
 
 .header-icon-card {
