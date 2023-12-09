@@ -8,3 +8,7 @@ export const fetchPopularProducts = () => {
   };
   return axios(`${BASE_URL}/popular`, { params });
 };
+
+export const fetchDiscountProducts = () => {
+  return axios(`${BASE_URL}/discount`);
+};

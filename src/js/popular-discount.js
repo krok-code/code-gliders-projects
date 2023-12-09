@@ -1,4 +1,4 @@
-import { fetchPopularProducts } from './api';
+import { fetchDiscountProducts, fetchPopularProducts } from './api';
 
 const refs = {
   popular: document.querySelector('.popular_list'),
@@ -6,6 +6,7 @@ const refs = {
 };
 
 document.addEventListener('DOMContentLoaded', fetchPopular);
+document.addEventListener('DOMContentLoaded', fetchDiscount);
 
 async function fetchPopular() {
   try {
@@ -48,6 +49,52 @@ function createPopularList(array) {
         </svg>
       </button>
     </li>`
+    )
+    .join('');
+}
+
+async function fetchDiscount() {
+  try {
+    const { data } = await fetchDiscountProducts();
+    refs.discount.insertAdjacentHTML(
+      'beforeend',
+      createDiscountList(data.slice(0, 2))
+    );
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function createDiscountList(array) {
+  return array
+    .map(
+      card => `
+    <li class="discount_card_item">
+      <div class="discount_card_img">
+        <img
+          src=${card.img}
+          width="114"
+          height="114"
+          alt=${card.name}
+        />
+        </div>
+        <div class="svg_box">
+          <svg></svg>
+        </div>
+
+      <div class="discount_card_elements">
+        <h3 class="card_title--discount card_title">${card.name}</h3>
+        <span class="card_title--price card_title ">${card.price}</span>
+
+        <button type="button" class="discount_card_btn">
+          <svg class="discount_order_btn" width="12" height="12">
+          <use href="../svg/icons.svg#icon-cart-hover"></use>
+          </svg>
+        </button>
+          
+      </div>  
+    </li> `
     )
     .join('');
 }
