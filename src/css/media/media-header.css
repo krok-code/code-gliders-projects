@@ -1,0 +1,65 @@
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 375px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+    .container {
+        max-width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .header {
+        padding-top: 24px;
+        padding-bottom: 56px;
+
+    }
+
+    .header-list {
+        gap: 16px;
+    }
+
+    .header-logo-icon {
+        width: 32px;
+        height: 32px;
+        padding: 6px;
+    }
+
+    .header-logo {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -0.48px;
+
+    }
+
+    .header-home {
+        width: 104px;
+        height: 48px;
+        font-size: 18px;
+        line-height: 24px;
+        /* 133.333% */
+    }
+
+    .hidden {
+        display: block;
+        color: var(--title-black-text-color);
+        font-family: "Neue Montreal Medium";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        /* 133.333% */
+        text-transform: uppercase;
+    }
+
+    .header-card-url {
+        display: flex;
+        gap: 17px;
+        
+    }
+
+}
