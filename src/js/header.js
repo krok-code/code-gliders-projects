@@ -5,3 +5,7 @@ export function getLength() {
   document.querySelector('#header-length').innerHTML = `${arrFromLS ? arrFromLS.length : '0'}`;
 }
 getLength();
+
+
+
+
