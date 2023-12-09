@@ -1,4 +1,4 @@
-import"./assets/import-251a534b.js";import{a as e}from"./assets/vendor-a61d8330.js";const n="https://food-boutique.b.goit.study/api/products",c=()=>{const t={limit:5};return e(`${n}/popular`,{params:t})},o=()=>e(`${n}/discount`),a={popular:document.querySelector(".popular_list"),discount:document.querySelector(".discount_list")};document.addEventListener("DOMContentLoaded",i);document.addEventListener("DOMContentLoaded",d);async function i(){try{const{data:t}=await c();a.popular.insertAdjacentHTML("beforeend",r(t)),console.log(t)}catch(t){console.log(t)}}function r(t){return t.map(s=>` <li class="card_item">
+import"./assets/import-8ae5f943.js";import{a as e}from"./assets/vendor-a61d8330.js";const n="https://food-boutique.b.goit.study/api/products",c=()=>{const t={limit:5};return e(`${n}/popular`,{params:t})},i=()=>e(`${n}/discount`),a={popular:document.querySelector(".popular_list"),discount:document.querySelector(".discount_list")};document.addEventListener("DOMContentLoaded",o);document.addEventListener("DOMContentLoaded",d);async function o(){try{const{data:t}=await c();a.popular.insertAdjacentHTML("beforeend",r(t)),console.log(t)}catch(t){console.log(t)}}function r(t){return t.map(s=>` <li class="card_item">
       <div class="card_img">
         <img
           src=${s.img}
@@ -21,10 +21,10 @@ import"./assets/import-251a534b.js";import{a as e}from"./assets/vendor-a61d8330.
       </div>
       <button type="button" class="card_btn">
         <svg class="order_btn" width="12" height="12">
-          <use href="../svg/icons.svg#icon-cart-hover"></use>
+          <use href="../img/icons.svg#shopping-cart"></use>
         </svg>
       </button>
-    </li>`).join("")}async function d(){try{const{data:t}=await o();a.discount.insertAdjacentHTML("beforeend",l(t.slice(0,2))),console.log(t)}catch(t){console.log(t)}}function l(t){return t.map(s=>`
+    </li>`).join("")}async function d(){try{const{data:t}=await i();a.discount.insertAdjacentHTML("beforeend",l(t.slice(0,2))),console.log(t)}catch(t){console.log(t)}}function l(t){return t.map(s=>`
     <li class="discount_card_item">
       <div class="discount_card_img">
         <img
@@ -35,7 +35,10 @@ import"./assets/import-251a534b.js";import{a as e}from"./assets/vendor-a61d8330.
         />
         </div>
         <div class="svg_box">
-          <svg></svg>
+          <svg width="60" height="60">
+            <use href="../img/icons.svg#discount">
+            </use>
+          </svg>
         </div>
 
       <div class="discount_card_elements">
@@ -43,8 +46,8 @@ import"./assets/import-251a534b.js";import{a as e}from"./assets/vendor-a61d8330.
         <span class="card_title--price card_title ">${s.price}</span>
 
         <button type="button" class="discount_card_btn">
-          <svg class="discount_order_btn" width="12" height="12">
-          <use href="../svg/icons.svg#icon-cart-hover"></use>
+          <svg  width="18" height="18">
+          <use href="../img/icons.svg#shopping-cart"></use>
           </svg>
         </button>
           
