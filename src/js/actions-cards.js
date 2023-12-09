@@ -3,8 +3,9 @@ import Swal from 'sweetalert2';
 // Функція, яка викликається при додаванні продукту до кошика
 export async function addToCart(productId) {
   // Знаходимо кнопку, яка відповідає за додавання продукту
+
   const button = document.querySelector(
-    `.cart-button[data-product-id="${productId}"]`
+    `button[data-product-id="${productId}"]`
   );
 
   // Перевіряємо, чи кнопка існує та чи її клас не містить "added"
