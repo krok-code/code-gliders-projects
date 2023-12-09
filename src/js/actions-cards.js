@@ -14,18 +14,25 @@ export async function addToCart(productId) {
 
     // Змінюємо вміст кнопки, додаючи піктограму галочки
     button.innerHTML = `
-      <span class="icon-container">
-        <svg class="check-icon" 
-          width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none">
-          <path d="M15 4.5L6.75 12.75L3 9" stroke="#E8E8E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+       <span class="icon-container">
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M15 4.5L6.75 12.75L3 9" stroke="#E8E8E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
     `;
+
+    // Отримуємо дані з Local Storage або створюємо новий пустий масив
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Додаємо новий товар до масиву кошика
+    cartData.push({ productId });
+
+    // Оновлюємо дані в Local Storage
+    localStorage.setItem('cart', JSON.stringify(cartData));
 
     // Функція для відображення сповіщення
     function showNotification(message) {
       // Викликаємо метод Swal.fire() з параметрами сповіщення
-
       Swal.fire({
         text: message,
         icon: 'success',
@@ -36,6 +43,7 @@ export async function addToCart(productId) {
         },
       });
     }
+
     // Викликаємо функцію для відображення сповіщення
     showNotification('Product added to the cart');
   }
