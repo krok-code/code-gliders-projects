@@ -1,55 +1,30 @@
 import { addToCart, checkIfInCart } from './actions-cards';
 
+import { fetchProductsFromApi, apiUrl } from './api';
+
 document.addEventListener('DOMContentLoaded', async () => {
-  // Отримуємо посилання на елементи DOM з відповідними ідентифікаторами
   const productListElement = document.getElementById('productList');
 
-  // Перевіряємо, чи були успішно знайдені обидва елементи
   if (!productListElement) {
-    // Якщо хоча б один елемент не знайдено, виводимо повідомлення про помилку та припиняємо виконання коду
-    console.error("Element with id 'productList' or 'pagination' not found.");
+    console.error("Element with id 'productList' not found.");
     return;
   }
 
-  // Задаємо значення за замовчуванням для номера сторінки
   const defaultPage = 1;
-  // Задаємо значення за замовчуванням для ліміту товарів на сторінці
   const defaultLimit = 9;
-  // URL API для отримання інформації про товари
-  const apiUrl = 'https://food-boutique.b.goit.study/api/products';
 
-  // Функція для отримання та відображення списку продуктів
   async function fetchProducts(page = defaultPage, limit = defaultLimit) {
     try {
-      // Виконуємо HTTP-запит за допомогою fetch
-      const response = await fetch(
-        `${apiUrl}?byABC=true&byPrice=true&byPopularity=true&page=${page}&limit=${limit}`
+      const { products, currentPage, totalPages } = await fetchProductsFromApi(
+        page,
+        limit
       );
 
-      // Перевіряємо, чи запит був успішним
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
-      }
-
-      // Розпаковуємо відповідь сервера у форматі JSON
-      const { results, page: currentPage, totalPages } = await response.json();
-
-      // Перевіряємо, чи дані є масивом продуктів
-      if (Array.isArray(results)) {
-        // Викликаємо функцію для відображення продуктів
-        await renderProductList(results);
-
-        // Оновлюємо пагінацію на сторінці
+      if (products) {
+        await renderProductList(products);
         updatePagination(currentPage, totalPages);
-      } else {
-        // Якщо дані не є масивом, виводимо помилку у консоль
-        console.error(
-          'Received data does not contain an array of products:',
-          response.data
-        );
       }
     } catch (error) {
-      // Виводимо помилку у консоль, якщо її вдалося перехопити
       console.error('Error fetching products:', error);
     }
   }
