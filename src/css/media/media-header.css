@@ -59,7 +59,10 @@
     .header-card-url {
         display: flex;
         gap: 17px;
-        
+        align-items: center;
+        justify-content: center;
     }
+
+}
 
 }
