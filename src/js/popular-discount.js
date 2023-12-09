@@ -12,8 +12,6 @@ async function fetchPopular() {
   try {
     const { data } = await fetchPopularProducts();
     refs.popular.insertAdjacentHTML('beforeend', createPopularList(data));
-
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -45,7 +43,7 @@ function createPopularList(array) {
       </div>
       <button type="button" class="card_btn">
         <svg class="order_btn" width="12" height="12">
-          <use href="../img/icons.svg#shopping-cart"></use>
+          <use href="./img/icons.svg#shopping-cart"></use>
         </svg>
       </button>
     </li>`
@@ -60,7 +58,6 @@ async function fetchDiscount() {
       'beforeend',
       createDiscountList(data.slice(0, 2))
     );
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -81,7 +78,7 @@ function createDiscountList(array) {
         </div>
         <div class="svg_box">
           <svg width="60" height="60">
-            <use href="../img/icons.svg#discount">
+            <use href="./img/icons.svg#discount">
             </use>
           </svg>
         </div>
@@ -92,7 +89,7 @@ function createDiscountList(array) {
 
         <button type="button" class="discount_card_btn">
           <svg  width="18" height="18">
-          <use href="../img/icons.svg#shopping-cart"></use>
+          <use href="./img/icons.svg#shopping-cart"></use>
           </svg>
         </button>
           
