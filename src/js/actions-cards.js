@@ -1,9 +1,9 @@
 import Swal from 'sweetalert2';
+import { save } from './local-storage';
 
 // Функція, яка викликається при додаванні продукту до кошика
 export async function addToCart(productId) {
   // Знаходимо кнопку, яка відповідає за додавання продукту
-
   const button = document.querySelector(
     `button[data-product-id="${productId}"]`
   );
@@ -28,8 +28,8 @@ export async function addToCart(productId) {
     // Додаємо новий товар до масиву кошика
     cartData.push({ productId });
 
-    // Оновлюємо дані в Local Storage
-    localStorage.setItem('cart', JSON.stringify(cartData));
+    // Оновлюємо дані w Local Storage za pomocą funkcji save
+    save('cart', cartData);
 
     // Функція для відображення сповіщення
     function showNotification(message) {
