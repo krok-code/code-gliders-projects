@@ -1,14 +1,9 @@
 import localStorageAPI from './local-storage.js';
 
-export let arrProducts = [];
-
-export const fillarrProducts = () => {
-  const dataFromLS = localStorageAPI.load('product');
-
-  if (dataFromLS === undefined) {
-    document.querySelector('#header-length').innerHTML = '0';
-    return;
-  }
-  document.querySelector('#header-length').innerHTML = dataFromLS.length;
-  arrProducts = dataFromLS;
-};
+export function getLength() {
+  const arrFromLS = localStorageAPI.load('product');
+  document.querySelector('#header-length').innerHTML = `${
+    arrFromLS ? arrFromLS.length : '0'
+  }`;
+}
+getLength();
