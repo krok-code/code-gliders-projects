@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 // Функція, яка викликається при додаванні продукту до кошика
 export async function addToCart(productId) {
   // Знаходимо кнопку, яка відповідає за додавання продукту
-  console.log('hello', productId);
+
   const button = document.querySelector(
     `button[data-product-id="${productId}"]`
   );
