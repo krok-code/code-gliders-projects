@@ -1,9 +1,4 @@
-
-
-
-import {arrProducts} from '../homePage.js';
-
-
+import {arrProducts} from '../main-page.js';
 import pathToSvg from '../../img/icons.svg';
 
  export function onClickCloseModal() {
