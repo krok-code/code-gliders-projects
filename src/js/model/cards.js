@@ -42,3 +42,37 @@ export function createProductCard(product) {
       </li>
       `;
 }
+
+export function createPopularCard(product) {
+  const { img, name, category, size, popularity, _id } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
+
+  return `
+        <li class="popular-product-card">
+            <div class="poppular-img-wrapper">
+              <img
+                class="popular-card-img"
+                src="${img}"
+                alt="${name}"
+                loading="lazy"
+              />
+            </div>
+    
+                <div class="popular-card-info" >
+                    <h3 class="popular-card-title">${name}</h3>
+                    <div class="popular-span-container">
+                    <span class="popular-span-info">Category: <span class="span-info-value">${category}</span></span>
+                    <span class="popular-span-info">Size: <span class="span-info-value">${size}</span></span>
+                    <span class="popular-span-info">Popularity: <span class="span-info-value">${popularity}</span></span>
+                    </div>
+                </div>
+                    
+                <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
+                    <svg class="popular-cart-svg" width="12" height="12">
+                        <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                    </svg>
+                </button>
+            
+        </li>
+        `;
+}
