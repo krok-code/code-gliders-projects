@@ -1,86 +1,122 @@
-import {
-  openDropDown,
-  rotateButton,
-  changeCategoriesValue,
-  changeTypesValue,
-  collectQueryParameters,
-  renderCategoryList,
-} from './drop-down.js';
-import {
-  getProductsByQuery,
-  getAllProducts,
-  getCategories,
-} from './api.js';
 import localStorageAPI from './local-storage.js';
 
-export let arrProducts = [];
 
-function loadQueryParamsFromLS() {
-  const paramsFromLS = localStorageAPI.load('queryParams');
-  if (!paramsFromLS) {
-    localStorageAPI.save('queryParams', {
-      keyword: '',
-      category: '',
-      page: 1,
-      limit: 9,
-    });
+export function renderCategoryList(list) {
+  const listOfCategory = list.map(item => {
+    return `<li class="filters-categories-item">${item}</li>`;
+  });
+  document
+    .querySelector('.filters-categories-list')
+    .insertAdjacentHTML(
+      'beforeend',
+      listOfCategory.join('').replaceAll('_', ' ')
+    );
+}
+
+export function openDropDown(event) {
+  const parentElement = this.closest('.filters-wrap');
+  const svgElement = parentElement.querySelector('.filters-down-svg');
+  const list = parentElement.querySelector('ul');
+
+  if (list.classList.contains('list-active')) {
+    list.classList.remove('list-active');
+  } else {
+    list.classList.add('list-active');
+  }
+  if (svgElement.classList.contains('rotate')) {
+    svgElement.classList.remove('rotate');
+  } else {
+    svgElement.classList.add('rotate');
   }
 }
-loadQueryParamsFromLS();
 
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    // Отримання списку категорій
-    const listOfCategories = await getCategories();
-
-    // Відображення списку категорій у дропдауні
-    renderCategoryList(listOfCategories);
-
-    document.querySelectorAll('.filters-categories-item').forEach(item => {
-      item.addEventListener('click', changeCategoriesValue);
-    });
-  } catch (error) {
-    console.log(error);
+export function rotateButton(event) {
+  if (this.classList.contains('rotate')) {
+    this.classList.remove('rotate');
+  } else {
+    this.classList.add('rotate');
   }
-});
-
-// РОБОТА ДРОПДАУНІВ + ІНПУТ
-
-categoriesInput.addEventListener('click', openDropDown);
-allSearchInput.addEventListener('click', openDropDown);
-downBtn.forEach(btn => {
-  btn.addEventListener('click', rotateButton);
-});
-
-allTypesItem.forEach(item => {
-  item.addEventListener('click', changeTypesValue);
-});
-
-// ФІЛЬТРАЦІЯ ТОВАРІВ
-
-searchForm.addEventListener('submit', async event => {
-  event.preventDefault();
-  try {
-    const queryParameters = collectQueryParameters();
-    const response = await getProductsByQuery(queryParameters);
-    const productForRender = response.results;
-    productsListGeneral.innerHTML = '';
-    if (productForRender.length === 0) {
-      const sorryMessage = renderSorryMessage();
-      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
-    } else {
-      renderMarkup(productForRender, 'general', productsListGeneral);
-    }
-    let cardsDisc = document.querySelectorAll('.product-card-general');
-    cardsDisc.forEach(card => {
-      card.addEventListener('click', openProductModal);
-    });
-
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    addToCartBtn.forEach(btn => {
-      btn.addEventListener('click', saveToLocalStorage);
-    });
-  } catch (error) {
-    console.log(error);
+  if (this.previousElementSibling.classList.contains('list-active')) {
+    this.previousElementSibling.classList.remove('list-active');
+  } else {
+    this.previousElementSibling.classList.add('list-active');
   }
-});
+}
+
+export function changeCategoriesValue(event) {
+  const input = document.querySelector('.filters-categories');
+  const list = document.querySelector('.filters-categories-list');
+  const newValue = event.target.textContent;
+
+  input.textContent = newValue;
+  list.classList.remove('list-active');
+  list.nextElementSibling.classList.remove('rotate');
+}
+
+export function changeTypesValue(event) {
+  const input = document.querySelector('.filters-allTypes');
+  const list = document.querySelector('.filters-allTypes-list');
+  const newValue = event.target.textContent;
+
+  input.textContent = newValue;
+  list.classList.remove('list-active');
+  list.nextElementSibling.classList.remove('rotate');
+}
+
+export function collectQueryParameters() {
+  const filterSearch = document
+    .querySelector('.filters-allTypes')
+    .textContent.split(' ')
+    .join('');
+  const category = document
+    .querySelector('.filters-categories')
+    .textContent.split(' ')
+    .join('_')
+    .replace('/', '&');
+  const searchWord = document.querySelector('.filters-input').value;
+  const queryParameters = {
+    category,
+    keyword: searchWord,
+    filterSearch: `by${filterSearch}`,
+  };
+
+  const paramsForBack = {
+    category,
+    keyword: searchWord,
+    filterSearch: `by${filterSearch}`,
+    page: 1,
+    limit: 9,
+  };
+
+  localStorageAPI.save('queryParams', paramsForBack);
+  return queryParameters;
+}
+
+export function getFilter(arg) {
+  let filter;
+  switch (arg) {
+    case 'byAtoZ':
+      filter = 'byABC=true';
+      break;
+    case 'byZtoA':
+      filter = 'byABC=false';
+      break;
+    case 'byCheaperfirst':
+      filter = 'byPrice=true';
+      break;
+    case 'byExpensivefirst':
+      filter = 'byPrice=false';
+      break;
+    case 'byPopular':
+      filter = 'byPopularity=false';
+      break;
+    case 'byNotpopular':
+      filter = 'byPopularity=true';
+      break;
+    default:
+      filter = 'byABC=true';
+      break;
+  }
+
+  return filter;
+}
