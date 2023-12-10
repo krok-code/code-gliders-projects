@@ -45,3 +45,16 @@ const fillarrProducts = () => {
   arrProducts = dataFromLS;
 };
 fillarrProducts();
+
+function loadQueryParamsFromLS() {
+  const paramsFromLS = localStorageAPI.load('queryParams');
+  if (!paramsFromLS) {
+    localStorageAPI.save('queryParams', {
+      keyword: '',
+      category: '',
+      page: 1,
+      limit: 9,
+    });
+  }
+}
+loadQueryParamsFromLS();
