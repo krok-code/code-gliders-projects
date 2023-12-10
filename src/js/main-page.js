@@ -181,5 +181,19 @@ export async function addToCardFromModal(event) {
     event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
+    
+    const idCard = event.currentTarget.getAttribute('data-id');
+    arrProducts = arrProducts.filter(item => item.id !== idCard);
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
+
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
+        btn.disabled = false;
+      }
+    });
   }
 }
