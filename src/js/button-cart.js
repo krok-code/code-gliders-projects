@@ -7,3 +7,4 @@ export async function openProductModal(event) {
 	if (event.target.closest('.js-addToCart-btn')) {
 		return;
 	}
+}
