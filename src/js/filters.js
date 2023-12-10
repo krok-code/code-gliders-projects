@@ -6,11 +6,7 @@ import {
   collectQueryParameters,
   renderCategoryList,
 } from './drop-down.js';
-import {
-  getProductsByQuery,
-  getAllProducts,
-  getCategories,
-} from './api.js';
+import { getProductsByQuery, getCategories } from './api.js';
 import localStorageAPI from './local-storage.js';
 
 export let arrProducts = [];
@@ -44,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// РОБОТА ДРОПДАУНІВ + ІНПУТ
+// Робота дроп-даунів + інпут
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
@@ -56,7 +52,7 @@ allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
 
-// ФІЛЬТРАЦІЯ ТОВАРІВ
+// Фільтрація товарів
 
 searchForm.addEventListener('submit', async event => {
   event.preventDefault();

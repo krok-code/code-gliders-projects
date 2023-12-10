@@ -1,5 +1,5 @@
 import localStorageAPI from './local-storage.js';
-// список категорій
+// Список категорій
 export function renderCategoryList(list) {
   const listOfCategory = list.map(item => {
     return `<li class="filters-categories-item">${item}</li>`;
@@ -11,7 +11,7 @@ export function renderCategoryList(list) {
       listOfCategory.join('').replaceAll('_', ' ')
     );
 }
-// управління дроп-даунів
+// Управління дроп-даунів
 export function openDropDown(event) {
   const parentElement = this.closest('.filters-wrap');
   const svgElement = parentElement.querySelector('.filters-down-svg');
