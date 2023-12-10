@@ -40,3 +40,36 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
+
+const paginationClick = async event => {
+  const currentPage = event.page;
+  console.log(currentPage);
+
+  try {
+    const queryParameters = collectQueryParameters();
+    queryParameters.page = currentPage;
+    const response = await getProductsByQuery(queryParameters);
+    const productForRender = response.results;
+
+    productsListGeneral.innerHTML = '';
+    if (productForRender.length === 0) {
+      const sorryMessage = renderSorryMessage();
+      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
+    } else {
+      renderMarkup(productForRender, 'general', productsListGeneral);
+    }
+    let cardsDisc = document.querySelectorAll('.product-card-general');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
+  } catch (err) {
+    console.log(err);
+    
+  }
+};
+pagination.on('afterMove', paginationClick);
