@@ -1,95 +1,155 @@
-import{s as y}from"./assets/header-c56829d2.js";import{a as d,S as _}from"./assets/vendor-bb007519.js";const p="https://food-boutique.b.goit.study/api/products",v=()=>{const a={limit:5};return d(`${p}/popular`,{params:a})},L=()=>d(`${p}/discount`),b="https://food-boutique.b.goit.study/api/products";async function w(a,t){try{const c=await d.get(b,{params:{byABC:!0,byPrice:!0,byPopularity:!0,page:a,limit:t}}),{results:s,page:r,totalPages:o}=c.data;return Array.isArray(s)?{products:s,currentPage:r,totalPages:o}:(console.error("Received data does not contain an array of products:",c.data),null)}catch(c){return console.error("Error fetching products:",c),null}}async function l(a){const t=document.querySelector(`button[data-product-id="${a}"]`);if(t&&!t.classList.contains("added")){let s=function(r){_.fire({text:r,icon:"success",timer:2e3,showConfirmButton:!1,customClass:{container:"custom-swal2-container"}})};t.classList.add("added"),t.innerHTML=`
-       <span class="icon-container">
-          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M15 4.5L6.75 12.75L3 9" stroke="#E8E8E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-    `;const c=JSON.parse(localStorage.getItem("cart"))||[];c.push({productId:a}),y("cart",c),s("Product added to the cart")}}async function $(a){try{return(JSON.parse(localStorage.getItem("cart"))||[]).some(s=>s.productId===a)}catch(t){return console.error("Error checking if product is in cart:",t),!1}}const g={popular:document.querySelector(".popular_list"),discount:document.querySelector(".discount_list")};document.addEventListener("DOMContentLoaded",E);document.addEventListener("DOMContentLoaded",S);async function E(){try{const{data:a}=await v();g.popular.insertAdjacentHTML("beforeend",P(a)),document.querySelectorAll(".popular_card_item").forEach(s=>{s.addEventListener("click",()=>{console.log("click cadrs")})}),document.querySelectorAll(".populat_card_btn").forEach(s=>{s.addEventListener("click",r=>{r.stopPropagation();const o=r.currentTarget.getAttribute("data-product-id");l(o)})})}catch(a){console.log(a)}}function P(a){return a.map(t=>` <li class="popular_card_item">
-      <div class="card_img">
-        <img
-          src=${t.img}
-          width="56"
-          height="56"
-          alt=${t.name}
-        />
-      </div>
-      <div class="card_elements">
-        <h3 class="card_title">${t.name}</h3>
-        <p class="card_text card_text--margin_b">
-          <span class="card_el">Category:</span>&nbsp;<span>${t.category}</span>
-        </p>
-        <p class="card_text">
-          <span class="card_el">Size:</span>&nbsp;<span>${t.size}</span
-          ><span class="card_el card_el--margin_l">Popularity:</span>&nbsp;<span
-            >${t.popularity}</span
-          >
-        </p>
-      </div>
-      <button type="button" class="populat_card_btn" data-product-id='${t._id}'>
-        <svg class="order_btn" width="12" height="12">
-          <use href="./img/icons.svg#shopping-cart"></use>
-        </svg>
-      </button>
-    </li>`).join("")}async function S(){try{const{data:a}=await L();g.discount.insertAdjacentHTML("beforeend",A(a.slice(0,2))),document.querySelectorAll(".discount_card_item").forEach(s=>{s.addEventListener("click",()=>{console.log("click cadrs")})}),document.querySelectorAll(".discount_card_btn").forEach(s=>{s.addEventListener("click",r=>{r.stopPropagation();const o=r.currentTarget.getAttribute("data-product-id");l(o)})})}catch(a){console.log(a)}}function A(a){return a.map(t=>`
-    <li class="discount_card_item">
-      <div class="discount_card_img">
-        <img
-          src=${t.img}
-          width="114"
-          height="114"
-          alt=${t.name}
-        />
-        </div>
-        <div class="svg_box">
-          <svg width="60" height="60">
-            <use href="./img/icons.svg#discount">
-            </use>
-          </svg>
-        </div>
-
-      <div class="discount_card_elements">
-        <h3 class="card_title--discount card_title">${t.name}</h3>
-        <span class="card_title--price card_title ">${t.price}</span>
-
-        <button type="button" class="discount_card_btn" data-product-id='${t._id}'>
-          <svg  width="18" height="18">
-          <use href="./img/icons.svg#shopping-cart"></use>
-          </svg>
-        </button>
-          
-      </div>  
-    </li> `).join("")}document.addEventListener("DOMContentLoaded",async()=>{const a=document.getElementById("productList");if(!a){console.error("Element with id 'productList' not found.");return}const t=1,c=9,s=8,r=6;async function o(e=t,n=c){try{const i=window.innerWidth;i<=767?n=r:i<=1439?n=s:n=c;const{products:u,currentPage:f,totalPages:C}=await w(e,n);u&&(await m(u),updatePagination(f,C))}catch(i){console.error("Error fetching products:",i)}}function h(e){const n=$(e._id)?"":"Add to Cart";return`
+import{l as h,g as S}from"./assets/header-851e26ad.js";import{a as g,P as j}from"./assets/vendor-99d50140.js";const k="https://food-boutique.b.goit.study/api/products";async function D(){return(await g.get("https://food-boutique.b.goit.study/api/products/categories")).data}async function I(t){let{keyword:e,category:s,page:a,limit:o,filterSearch:n}=t;const r=window.innerWidth;r<768?o=6:r>=768&&r<1440?o=8:o=9;const c=new URLSearchParams({page:a,limit:o});return e!==""&&c.append("keyword",e),s!==""&&s!=="Show_all"&&s!=="Categories"&&c.append("category",s),(await g.get(`${k}?${c}&${getFilter(n)}`)).data}async function z(){return(await g.get("https://food-boutique.b.goit.study/api/products/discount")).data}async function F(){return(await g.get("https://food-boutique.b.goit.study/api/products/popular")).data}async function $(t){let e,{keyword:s,category:a,page:o=1,limit:n,filterSearch:r}=t;const c=window.innerWidth;c<768?n=6:c>=768&&c<1440?n=8:n=9;const i=new URLSearchParams({limit:n,page:o});return s!==""&&i.append("keyword",s),a!==""&&a!=="Show_all"&&a!=="Categories"&&i.append("category",a),e=await g.get(`${k}?${i}&${getFilter(filterSearhc)}`),e.data}async function q(t){return(await g.get(`https://food-boutique.b.goit.study/api/products/${t}`)).data}const u="/code-gliders-projects/assets/icons-d1349a2b.svg";function H(t){const e=t.map(s=>`<li class="filters-categories-item">${s}</li>`);document.querySelector(".filters-categories-list").insertAdjacentHTML("beforeend",e.join("").replaceAll("_"," "))}function E(t){const e=this.closest(".filters-wrap"),s=e.querySelector(".filters-down-svg"),a=e.querySelector("ul");a.classList.contains("list-active")?a.classList.remove("list-active"):a.classList.add("list-active"),s.classList.contains("rotate")?s.classList.remove("rotate"):s.classList.add("rotate")}function _(t){this.classList.contains("rotate")?this.classList.remove("rotate"):this.classList.add("rotate"),this.previousElementSibling.classList.contains("list-active")?this.previousElementSibling.classList.remove("list-active"):this.previousElementSibling.classList.add("list-active")}function O(t){const e=document.querySelector(".filters-categories"),s=document.querySelector(".filters-categories-list"),a=t.target.textContent;e.textContent=a,s.classList.remove("list-active"),s.nextElementSibling.classList.remove("rotate")}function x(t){const e=document.querySelector(".filters-allTypes"),s=document.querySelector(".filters-allTypes-list"),a=t.target.textContent;e.textContent=a,s.classList.remove("list-active"),s.nextElementSibling.classList.remove("rotate")}function C(){const t=document.querySelector(".filters-allTypes").textContent.split(" ").join(""),e=document.querySelector(".filters-categories").textContent.split(" ").join("_").replace("/","&"),s=document.querySelector(".filters-input").value,a={category:e,keyword:s,filterSearch:`by${t}`},o={category:e,keyword:s,filterSearch:`by${t}`,page:1,limit:9};return h.save("queryParams",o),a}function R(t){let{img:e,name:s,category:a,size:o,popularity:n,price:r,_id:c,is10PercentOff:i}=t;const l=d.some(p=>p.id===c);return`
+      <li class="product-card-general">
+          <div class="img-wrapper">
+            <img
+              class="card-img"
+              src="${e}"
+              alt="${s}"
+              loading="lazy"
+            />
+          </div>
   
-   
-         <li class="product-card">
-           <div class="card-img-wrp">
-             <img class="product-image" ${e.img?`src="${e.img}"`:'src="./default-image.jpg"'} alt="${e.name}">
-           </div>
-                 
-                 
-                   <h3 class="product-name">${e.name}</h3>
-                   <div class="general-card-container">
-                   <p class="product-category">
-                     <span class="label-category">Category:</span> ${e.category}
-                   </p>
-                   <p class="product-size">
-                     <span class="label-size">Size:</span> ${e.size}
-                   </p>
-                   <p class="product-popularity">
-                     <span class="label-popularity">Popularity:</span> ${e.popularity}
-                   </p>
-                 </div>
-                 <div class="general-card-price">
-                   <p class="product-price">$${e.price.toFixed(2)}</p>
-                   <button class="cart-button" data-product-id="${e._id}">
-                              
-                                 <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                   <path d="M2.70005 0.900024C2.46135 0.900024 2.23244 0.994846 2.06365 1.16363C1.89487 1.33241 1.80005 1.56133 1.80005 1.80002C1.80005 2.03872 1.89487 2.26764 2.06365 2.43642C2.23244 2.60520 2.46135 2.70002 2.70005 2.70002H3.79805L4.07255 3.79982C4.07528 3.81249 4.07828 3.82509 4.08155 3.83762L5.30375 8.72462L4.50005 9.52742C3.36605 10.6614 4.16885 12.6 5.77265 12.6H13.5C13.7387 12.6 13.9677 12.5052 14.1364 12.3364C14.3052 12.1676 14.4 11.9387 14.4 11.7C14.4 11.4613 14.3052 11.2324 14.1364 11.0636C13.9677 10.8948 13.7387 10.8 13.5 10.8H5.77265L6.67265 9.90002H12.6C12.7671 9.89993 12.9309 9.85333 13.073 9.76543C13.2151 9.67752 13.33 9.5518 13.4046 9.40232L16.1046 4.00232C16.1732 3.86515 16.2056 3.71273 16.1987 3.55953C16.1918 3.40633 16.1458 3.25744 16.0652 3.12698C15.9846 2.99652 15.872 2.88882 15.7381 2.81409C15.6042 2.73937 15.4534 2.70011 15.3 2.70002H5.65205L5.37305 1.58132C5.32429 1.3867 5.21191 1.21395 5.05374 1.09051C4.89557 0.967076 4.70068 0.90003 4.50005 0.900024H2.70005ZM14.4 14.85C14.4 15.2081 14.2578 15.5514 14.0046 15.8046C13.7515 16.0578 13.4081 16.2 13.05 16.2C12.692 16.2 12.3486 16.0578 12.0955 15.8046C11.8423 15.5514 11.7 15.2081 11.7 14.85C11.7 14.492 11.8423 14.1486 12.0955 13.8954C12.3486 13.6423 12.692 13.5 13.05 13.5C13.4081 13.5 13.7515 13.6423 14.0046 13.8954C14.2578 14.1486 14.4 14.492 14.4 14.85ZM5.85005 16.2C6.20809 16.2 6.55147 16.0578 6.80464 15.8046C7.05782 15.5514 7.20005 15.2081 7.20005 14.85C7.20005 14.492 7.05782 14.1486 6.80464 13.8954C6.55147 13.6423 6.20809 13.5 5.85005 13.5C5.49201 13.5 5.14863 13.6423 4.89545 13.8954C4.64228 14.1486 4.50005 14.492 4.50005 14.85C4.50005 15.2081 4.64228 15.5514 4.89545 15.8046C5.14863 16.0578 5.49201 16.2 5.85005 16.2Z" fill="#E8E8E2"/>
-                                 </svg>
-                              
-                               ${n}
-                     </button>
-                 </div>
-         </li>
-   `}async function m(e){a.innerHTML="";for(const n of e){const i=h(n);a.insertAdjacentHTML("beforeend",i)}}a.addEventListener("click",async e=>{if(e.target.classList.contains("cart-button")){const n=e.target.dataset.productId;await l(n)}}),o()});
+              <div class="general-card-container" >
+                  <h3 class="general-card-title">${s}</h3>
+                  <div class="general-span-container">
+                  <span class="general-span-info">Category:<span class="span-info-value">${a}</span></span>
+
+                  <span class="general-span-info">Size:<span class="span-info-value">${o}</span></span>
+
+                  <span class="general-span-info">Popularity:<span class="span-info-value">${n}</span></span>
+                  </div>
+              </div>
+    
+              <div class="general-card-price">
+                  <span class="general-span-price">&#36;${r}</span>
+                  <button data-id=${c} type="submit" class="addToCart-btn js-addToCart-btn" ${l?"disabled":""}>
+                      <svg class="cart-svg " width="18" height="18">
+                          <use href="${u}${l?"#icon-checkmark":"#icon-shopping-cart"}"></use>
+                         
+                      </svg>  
+                  </button>
+              </div>
+              <svg class="general-discount-svg ${i?"discount-label":""}" width="60" height="60">
+                <use href="${u}#icon-discount"></use>
+              </svg>
+      </li>
+      `}function N(t){const{img:e,name:s,category:a,size:o,popularity:n,_id:r}=t,c=d.some(i=>i.id===r);return`
+        <li class="popular-product-card">
+            <div class="poppular-img-wrapper">
+              <img
+                class="popular-card-img"
+                src="${e}"
+                alt="${s}"
+                loading="lazy"
+              />
+            </div>
+    
+                <div class="popular-card-info" >
+                    <h3 class="popular-card-title">${s}</h3>
+                    <div class="popular-span-container">
+                    <span class="popular-span-info">Category: <span class="span-info-value">${a}</span></span>
+                    <span class="popular-span-info">Size: <span class="span-info-value">${o}</span></span>
+                    <span class="popular-span-info">Popularity: <span class="span-info-value">${n}</span></span>
+                    </div>
+                </div>
+                    
+                <button data-id=${r} type="submit" class="popular-card-btn js-addToCart-btn" ${c?"disabled":""}>
+                    <svg class="popular-cart-svg" width="12" height="12">
+                        <use href="${u}${c?"#icon-checkmark":"#icon-shopping-cart"}"></use>
+                    </svg>
+                </button>
+            
+        </li>
+        `}function W(t){const{img:e,name:s,price:a,_id:o}=t,n=d.some(r=>r.id===o);return`
+      <li class="discount-product-card">
+      <div class="discount-img-wrapper">
+        <img
+          class="discount-card-img"
+          src="${e}"
+          alt="${s}"
+          loading="lazy"
+        />
+        <svg class="discount-svg-icon" width="60" height="60">
+          <use href="${u}#icon-discount"></use>
+        </svg>
+
+      </div>
+
+      <div class="discount-card-info" >
+          <h3 class="discount-card-title">${s}</h3>
+
+          <div class="discount-card-price">
+              <span class="span-price">&#36;${a}</span>
+              <button data-id=${o} type="submit" class="addToCart-btn js-addToCart-btn" ${n?"disabled":""}>
+                  <svg class="cart-svg" width="18" height="18">
+                      <use href="${u}${n?"#icon-checkmark":"#icon-shopping-cart"}"></use>
+                  </svg>
+              </button>
+          </div>
+      </div>
+  </li>`}function f(t,e,s){let a;e==="general"?a=t.map(o=>R(o)):e==="popular"?a=t.map(o=>N(o)):a=t.map(o=>W(o)),s.innerHTML=a.join("")}function P(){const t=document.querySelector(".modal-product-backdrop");t.remove(),t.classList.add("is-hidden"),document.body.classList.remove("is-overflow-hidden")}function U(t){const e=document.querySelector(".modal-product-backdrop");t.key==="Escape"&&(P(),e.classList.add("is-hidden"))}function V(t){const e=document.querySelector(".modal-product-backdrop");t.target===e&&(P(),e.classList.remove("is-hidden"))}function J(t){let{name:e,category:s,desc:a,img:o,price:n,size:r,popularity:c,_id:i}=t;const l=d.some(p=>p.id===i);return`
+          <div class="modal-product-backdrop" data-modal>
+          <div class="modal-product">
+              <button type="button" class="modal-btn-close" data-modal-close>
+                  <svg class="modal-svg-close" width="28" height="28">
+                      <use href="${u}#icon-close"></use>
+                  </svg>
+              </button>
+      
+              <div class="modal-product-info">
+                  <div class="modal-product-img-wrapper">
+                    
+                      <img class="modal-product-img" src="${o}" alt="${e}" width="1660">
+        
+                  </div>
+      
+                  <div class="modal-product-description">
+                      <h2 class="modal-title">${e}</h2>
+      
+                      <ul class="modal-product-list">
+                          <li class="modal-product-item">
+                              <h3 class="modal-product-caption">Category:</h3>
+                              <p class="modal-product-content">${s}</p>
+                          </li>
+                          <li class="modal-product-item">
+                              <h3 class="modal-product-caption">Size:</h3>
+                              <p class="modal-product-content">${r}</p>
+                          </li>
+                          <li class="modal-product-item">
+                              <h3 class="modal-product-caption">Popularity:</h3>
+                              <p class="modal-product-content">${c}</p>
+                          </li>
+                      </ul>
+      
+                      <p class="modal-product-text">${a}</p>
+                  </div>
+              </div>
+      
+              <div class="modal-product-wrapper-price">
+                  <p class="modal-product-price"><span>&#36;</span>${n}</p>
+                  <button data-id=${i} type="submit" class="modal-product-btn-price">
+                  ${l?"Remove from":"Add to"} 
+                      <svg class="modal-btn-svg" width="18" height="18">
+                          <use class="modal-icon-svg" href="${u}#icon-shopping-cart"></use>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+      </div>
+      `}async function y(t){if(t.target.closest(".js-addToCart-btn"))return;const a=t.target.closest("li").querySelector(".js-addToCart-btn").getAttribute("data-id"),o=await q(a);document.querySelector("body").insertAdjacentHTML("beforeend",J(o)),document.body.classList.add("is-overflow-hidden"),document.querySelector(".modal-btn-close").addEventListener("click",P),document.addEventListener("keydown",U),document.addEventListener("click",V),document.querySelector(".modal-product-btn-price").addEventListener("click",at)}async function T(t){const e=t.currentTarget.getAttribute("data-id");t.currentTarget.querySelector("use").setAttribute("href",`${u}#icon-checkmark`),t.currentTarget.setAttribute("disabled","true");const a={};try{const n=await q(e);console.log(n);const{category:r,size:c,_id:i,name:l,price:p,img:m}=n;a.category=r,a.size=c,a.id=i,a.name=l,a.price=p,a.img=m}catch(n){console.log(n)}const o=window.localStorage;d.push(a),o.setItem("product",JSON.stringify(d)),S()}function A(){return`
+        <div class="sorry-wrapper">
+            <span class="emoji-sorry">&#128561;</span>
+            <h3 class="sorry-message-text"> Sorry, there are no items matching your filter request!</h3>
+        </div> 
+    `}const Q=document.querySelector(".filters-form"),G=document.querySelector(".filters-categories"),Y=document.querySelector(".filters-allTypes"),K=document.querySelectorAll(".filters-down-svg"),X=document.querySelectorAll(".filters-allTypes-item"),v=document.querySelector(".products-list-general"),Z=document.querySelector(".products-list-discount"),tt=document.querySelector(".products-list-popular");let d=[];const et=()=>{const t=h.load("product");if(t===void 0){document.querySelector("#header-length").innerHTML="0";return}document.querySelector("#header-length").innerHTML=t.length,d=t};et();function st(){h.load("queryParams")||h.save("queryParams",{keyword:"",category:"",page:1,limit:9})}st();document.addEventListener("DOMContentLoaded",async()=>{try{const t=await D();H(t),document.querySelectorAll(".filters-categories-item").forEach(l=>{l.addEventListener("click",O)});const e=h.load("queryParams"),a=(await I(e)).results;f(a,"general",v),document.querySelectorAll(".product-card-general").forEach(l=>{l.addEventListener("click",y)});const n=await z();f(n,"discount",Z),document.querySelectorAll(".discount-product-card").forEach(l=>{l.addEventListener("click",y)});const c=await F();f(c,"popular",tt),document.querySelectorAll(".popular-product-card").forEach(l=>{l.addEventListener("click",y),document.querySelectorAll(".js-addToCart-btn").forEach(m=>{m.addEventListener("click",T)})})}catch(t){console.log(t)}});G.addEventListener("click",E);Y.addEventListener("click",E);K.forEach(t=>{t.addEventListener("click",_)});X.forEach(t=>{t.addEventListener("click",x)});Q.addEventListener("submit",async t=>{t.preventDefault();try{const e=C(),a=(await $(e)).results;if(v.innerHTML="",a.length===0){const r=A();v.insertAdjacentHTML("beforeend",r)}else f(a,"general",v);document.querySelectorAll(".product-card-general").forEach(r=>{r.addEventListener("click",y)}),document.querySelectorAll(".js-addToCart-btn").forEach(r=>{r.addEventListener("click",T)})}catch(e){console.log(e)}});async function at(t){const e={},s=t.currentTarget.getAttribute("data-id"),a=d.some(o=>o.id===s);if(!a){t.currentTarget.innerHTML=`Remove from <svg class="modal-btn-svg" width="18" height="18">
+                <use class="modal-icon-svg" href="${u}#icon-shopping-cart"></use>
+                </svg>`,document.querySelectorAll(".js-addToCard-btn").forEach(r=>{let c=r.getAttribute("data-id");const i=r.querySelector("use");c===s&&(i.setAttribute("href",`${u}#icon-checkmark`),r.disabled=!0)});try{const r=await q(s),{category:c,size:i,_id:l,name:p,price:m,img:B}=r;e.category=c,e.size=i,e.id=l,e.name=p,e.price=m,e.img=B}catch(r){console.log(r)}const n=window.localStorage;d.push(e),n.setItem("product",JSON.stringify(d)),S()}if(a){t.currentTarget.innerHTML=`Add to <svg class="modal-btn-svg" width="18" height="18">
+        <use class="modal-icon-svg" href="${u}#icon-shopping-cart"></use>
+        </svg>`;const o=t.currentTarget.getAttribute("data-id");d=d.filter(r=>r.id!==o),document.querySelectorAll(".js-addToCart-btn").forEach(r=>{let c=r.getAttribute("data-id");const i=r.querySelector("use");c===s&&(i.setAttribute("href",`${u}#icon-shopping-cart`),r.disabled=!1)}),localStorage.setItem("product",JSON.stringify(d)),S()}}const b=document.querySelector(".products-list-general"),L=document.querySelector("#tui-pagination-container"),ot={itemsPerPage:1,visiblePages:4,page:1,centerAlign:!0,firstItemClassName:"tui-first-child",lastItemClassName:"tui-last-child",template:{page:'<a href="#" class="tui-page-btn">{{page}}</a>',currentPage:'<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',moveButton:`<a href="#" class="icon tui-page-btn tui-{{type}}">
+      <span class="tui-ico-{{type}}">{{type}}>
+      </span>
+      </a>`,disabledMoveButton:`<span class="tui-page-btn tui-is-disabled tui-{{type}}">
+      <span class="tui-ico-{{type}}">{{type}}>
+      </span>
+      </span>`,moreButton:'<a href="#" class="tui-page-btn tui-{{type}}-is-ellip"><span class="tui-ico-ellip">...</span></a>'}},w=new j(L,ot),rt=async t=>{const e=t.page;console.log(e);try{const s=C();s.page=e;const o=(await $(s)).results;if(b.innerHTML="",o.length===0){const c=A();b.insertAdjacentHTML("beforeend",c)}else f(o,"general",b);document.querySelectorAll(".product-card-general").forEach(c=>{c.addEventListener("click",y)}),document.querySelectorAll(".js-addToCart-btn").forEach(c=>{c.addEventListener("click",T)})}catch(s){console.log(s)}};w.on("afterMove",rt);const M=async t=>{try{const e=C(),s=await $(e);s.totalPages===1?L.classList.add("is-hidden"):(w.setTotalItems(s.totalPages),L.classList.remove("is-hidden")),w.reset()}catch(e){console.log(e)}};document.addEventListener("DOMContentLoaded",M);const ct=document.querySelector(".filters-form");ct.addEventListener("submit",M);document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".products-list-general");function e(){window.scrollY/(document.body.scrollHeight-window.innerHeight)*100>=30&&t.classList.add("animation")}window.addEventListener("scroll",e)});
 //# sourceMappingURL=commonHelpers2.js.map

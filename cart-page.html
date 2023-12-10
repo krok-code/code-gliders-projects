@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
     
-    <script type="module" crossorigin src="/code-gliders-projects/assets/header-c56829d2.js"></script>
-    <link rel="stylesheet" href="/code-gliders-projects/assets/header-cc5ae1f9.css">
+    <script type="module" crossorigin src="/code-gliders-projects/assets/header-851e26ad.js"></script>
+    <link rel="stylesheet" href="/code-gliders-projects/assets/header-3c4223cd.css">
   </head>
   <body>
     <!-- HEADER - ANTONINA -->
@@ -23,7 +23,7 @@
                 </li>
                 <li class="header-home"><a class="header-home" href="./index.html">Home</a></li>
                 <li class="header-card">
-                    <a class="header-card-url" href="./cart.html">
+                    <a class="header-card-url" href="./cart-page.html">
                         <svg class="header-icon-card" width="38" height="38" aria-label="header-shopping-card">
                             <use href="/code-gliders-projects/assets/icons-d1349a2b.svg#shopping-cart"></use>
                         </svg>
@@ -37,7 +37,46 @@
 
     <main>
       <!-- CART-BODY - VLADISLAV P, MAKSYM -->
-      
+      <section class="section-cart" id="section-cart">
+    <div class="container posrel">
+        <h2 class="cart-title">
+            <svg class="cart-icon-shopping">
+                <use href="./images/icons.svg#shopping-cart"></use>
+            </svg>
+            Cart (<span class="cart-number-purchases">3</span>)
+        </h2>
+        <div class="delete-all-box">
+            <p class="delete-all-text">Delete all</p>
+            <svg class="delete-all-icon" width="24" height="24">
+                <use href="./images/icons.svg#close"></use>
+            </svg>
+        </div>
+    
+        <div class="cart-content">
+            <ul class="cart-shopping-list cart-products">
+    
+            </ul>
+    
+            <div class="cart-order">
+                <h3 class="cart-title-your-order">Your Order</h3>
+                <div class="cart-total-price-box">
+                    <p class="cart-total-price-text">Total</p>
+                    <div>
+                        <span class="cart-total-price-sum">Sum: $</span>
+                        <span class="cart-total-price-number js-total-price"></span>
+                    </div>
+                </div>
+                <form action="#" class="cart-form">
+                    <input class="cart-order-info-input" type="email" name="email" placeholder="Mail: Enter your email"
+                        required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
+                    <button class="cart-order-info-btn cart-form-bt" type="submit" aria-label="сheckout">
+                        Checkout
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <!-- FOOTER - ANTONINA -->
