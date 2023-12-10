@@ -35,6 +35,7 @@ body {
   font-weight: 400;
   color: var(--title-black-text-color);
   background-color: #e8e8e2;
+  margin: 0;
 }
 
 input {

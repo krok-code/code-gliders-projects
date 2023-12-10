@@ -36,4 +36,13 @@
   .discount_card_item {
     width: 100%;
   }
+  .discount-title {
+    margin-top: 40px;
+  }
+  .discount_list {
+    gap: 0;
+  }
+  .discount_list > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }

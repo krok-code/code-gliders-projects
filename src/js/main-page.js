@@ -9,24 +9,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error("Element with id 'productList' not found.");
     return;
   }
-
   const defaultPage = 1;
-  const defaultLimitLargeScreen = 9;
-  const defaultLimitMediumScreen = 8;
   const defaultLimitSmallScreen = 6;
+  const defaultLimitMediumScreen = 8;
+  const defaultLimitLargeScreen = 9;
 
-  async function fetchProducts(
-    page = defaultPage,
-    limit = defaultLimitLargeScreen
-  ) {
+  async function fetchProducts(page = defaultPage) {
     try {
       const screenWidth = window.innerWidth;
+      let limit;
 
       if (screenWidth <= 767) {
         limit = defaultLimitSmallScreen;
       } else if (screenWidth <= 1439) {
         limit = defaultLimitMediumScreen;
-      } else {
+      } else if (screenWidth >= 1440) {
         limit = defaultLimitLargeScreen;
       }
 
@@ -43,6 +40,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('Error fetching products:', error);
     }
   }
+
+  // Cлухач подій resize
+  window.addEventListener('resize', () => {
+    fetchProducts();
+  });
 
   // Функція для створення розмітки HTML
   function createProductCard(product) {
@@ -94,8 +96,6 @@ document.addEventListener('DOMContentLoaded', async () => {
    `;
   }
 
-  // Все все що вище вже запущено////
-
   // Функція для відображення списку продуктів
   async function renderProductList(products) {
     // Очищаємо вміст елементу з id="productList"
@@ -110,8 +110,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       productListElement.insertAdjacentHTML('beforeend', productCard);
     }
   }
-
-  /////////////////
 
   productListElement.addEventListener('click', async event => {
     // Перевіряємо, чи клікнуто по елементу з класом "cart-button"
