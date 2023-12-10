@@ -110,3 +110,29 @@ allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
 
+searchForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  try {
+    const queryParameters = collectQueryParameters();
+    const response = await getProductsByQuery(queryParameters);
+    const productForRender = response.results;
+    productsListGeneral, innerHTML = '';
+    if (productForRender.length === 0) {
+      const sorryMessage = renderSorryMessage();
+      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
+    } else {
+      renderMarkup(productForRender, 'general', productsListGeneral);
+    }
+    let cardsDisc = document.querySelectorAll('.product-card-general');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+    
+    const addToCartBtn = document.querySelectorAll('.js-addToCard-btn');
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
