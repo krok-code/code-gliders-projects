@@ -73,3 +73,25 @@ const paginationClick = async event => {
   }
 };
 pagination.on('afterMove', paginationClick);
+
+
+
+const paginationUpdate = async event => {
+  try {
+    const queryParameters = collectQueryParameters();
+    const response = await getProductsByQuery(queryParameters);
+    if (response.totalPages === 1) {
+      container.classList.add('is-hidden');
+    } else {
+      pagination.setTotalItems(response.totalPages);
+      container.classList.remove('is-hidden');
+    }
+    pagination.reset();
+  } catch (err) {
+    console.log(err);
+  }
+};
+document.addEventListener('DOMContentLoaded', paginationUpdate);
+
+const searchForm = document.querySelector('.filters-form');
+searchForm.addEventListener('submit', paginationUpdate);
