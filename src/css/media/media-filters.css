@@ -1,5 +1,6 @@
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .filters-form {
+<<<<<<< HEAD
         flex-direction: row;
         gap: 8px;
     }
@@ -125,3 +126,34 @@
         line-height: 24px;
     }
 }
+=======
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+  @media only screen and (min-width: 768px){
+    .filters-input  {
+      width: 269px;
+    }
+  
+    .filters-categories {
+      width: 189px;
+    }
+  
+    .filters-allTypes {
+      width: 200px;
+    }
+  }
+  @media only screen and (min-width: 1440px) {
+
+    .filters-input,
+  .filters-categories,
+  .filters-allTypes {
+    font-family: "Neue Montreal Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  }  
+>>>>>>> main */

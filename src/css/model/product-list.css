@@ -1,14 +1,9 @@
-.products-list {
-  background-color: var(--primary-bg-color);
-  width: 335px;
-}
 .product-card {
   width: 335px;
   height: 356px;
 
   margin-bottom: 20px;
   padding-top: 20px;
-  flex-shrink: 0;
   cursor: pointer;
   position: relative;
   border-radius: 20px;
@@ -22,15 +17,6 @@
     0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
   transform: scale(1.01);
-}
-.productList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-bottom: 80px;
-  width: 100%;
-  max-width: 375px; /* Maksymalna szerokość kontenera */
-  margin: 0 auto; /* Wyśrodkowanie kontenera na stronie */
 }
 
 .card-img-wrp {
