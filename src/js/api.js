@@ -82,3 +82,10 @@ export async function getProductsByQuery(queryParams) {
   response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearhc)}`);
   return response.data;
 }
+
+export async function getProducttById(id) {
+  const response = await axios.get(
+    `https://food-boutique.b.goit.study/api/products/${id}`
+  );
+  return response.data;
+}
