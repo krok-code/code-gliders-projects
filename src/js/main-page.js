@@ -116,7 +116,7 @@ searchForm.addEventListener('submit', async event => {
     const queryParameters = collectQueryParameters();
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
-    productsListGeneral, innerHTML = '';
+    productsListGeneral.innerHTML = '';
     if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
       productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
@@ -127,8 +127,8 @@ searchForm.addEventListener('submit', async event => {
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
-    
-    const addToCartBtn = document.querySelectorAll('.js-addToCard-btn');
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
     addToCartBtn.forEach(btn => {
       btn.addEventListener('click', saveToLocalStorage);
     });
