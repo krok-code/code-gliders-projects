@@ -99,3 +99,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(error);
   }
 });
+
+categoriesInput.addEventListener('click', openDropDown);
+allSearchInput.addEventListener('click', openDropDown);
+downBtn.forEach(btn => {
+  btn.addEventListener('click', rotateButton);
+});
+
+allTypesItem.forEach(item => {
+  item.addEventListener('click', changeTypesValue);
+});
+
