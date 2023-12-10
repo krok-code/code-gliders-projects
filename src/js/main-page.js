@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const listOfCategories = await getCategories();
     renderCategoryList(listOfCategories);
     document.querySelectorAll('.filters-categories-item').forEach(item => {
-      item.addEventListener('Click', changeCategoriesValue);
+      item.addEventListener('click', changeCategoriesValue);
     });
 
     const paramsFromLS = localStorageAPI.load('queryParams');
@@ -79,19 +79,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
-    let cardsDisc = document, querySelectorAll('.discount-product-card');
+    let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
 
     const arrOfPopularProducts = await getPopularProducts();
     renderMarkup(arrOfPopularProducts, 'popular', productListPopular);
-    let cardsPop = document, querySelectorAll('.discount-product-card');
+    let cardsPop = document.querySelectorAll('.popular-product-card');
     cardsPop.forEach(card => {
       card.addEventListener('click', openProductModal);
 
-      const addToCardBtn = document.querySelectorAll('.js-addToCard-btn');
-      addToCardBtn.forEach(btn => {
+      const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+      addToCartBtn.forEach(btn => {
         btn.addEventListener('click', saveToLocalStorage);
       });
     });
