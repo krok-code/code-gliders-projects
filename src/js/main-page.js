@@ -144,7 +144,7 @@ export async function addToCardFromModal(event) {
 
   if (!isInCart) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-                <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+                <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
                 </svg>`;
     
     const addToCartBtn = document.querySelectorAll('.js-addToCard-btn');
@@ -153,7 +153,7 @@ export async function addToCardFromModal(event) {
       const passSvg = btn.querySelector('use');
 
       if (_id === id) {
-        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+        passSvg.setAttribute('href', `${iconsPath}#checkmark`);
         btn.disabled = true;
       }
     });
