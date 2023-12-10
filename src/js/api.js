@@ -89,3 +89,29 @@ export async function getProducttById(id) {
   );
   return response.data;
 }
+
+export async function registrSubscription(client) {
+  const response = await axios.post(
+    `https://food-boutique.b.goit.study/api/subscription`,
+    client,
+    {
+      headers: {
+        'content-type': 'application/json',
+      },
+    }
+  );
+  return response.data;
+}
+
+export async function order(order) {
+  const response = await axios.post(
+    `https://food-boutique.b.goit.study/api/orders`,
+    order,
+    {
+      headers: {
+        'content-type': 'application/json',
+      },
+    }
+  );
+  return response.data;
+}
