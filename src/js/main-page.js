@@ -58,3 +58,44 @@ function loadQueryParamsFromLS() {
   }
 }
 loadQueryParamsFromLS();
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const listOfCategories = await getCategories();
+    renderCategoryList(listOfCategories);
+    document.querySelectorAll('.filters-categories-item').forEach(item => {
+      item.addEventListener('Click', changeCategoriesValue);
+    });
+
+    const paramsFromLS = localStorageAPI.load('queryParams');
+    const allProduct = await getAllProducts(paramsFromLS);
+    const arrOfAllProducts = allProduct.results;
+    renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
+
+    let cards = document.querySelectorAll('.product-card-general');
+    cards.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const arrOfDiscountProducts = await getDiscountProducts();
+    renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
+    let cardsDisc = document, querySelectorAll('.discount-product-card');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const arrOfPopularProducts = await getPopularProducts();
+    renderMarkup(arrOfPopularProducts, 'popular', productListPopular);
+    let cardsPop = document, querySelectorAll('.discount-product-card');
+    cardsPop.forEach(card => {
+      card.addEventListener('click', openProductModal);
+
+      const addToCardBtn = document.querySelectorAll('.js-addToCard-btn');
+      addToCardBtn.forEach(btn => {
+        btn.addEventListener('click', saveToLocalStorage);
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
