@@ -101,7 +101,7 @@ a {
 
 .svg-soc-footer:hover,
 .svg-soc-footer:focus {
-    background: #E8E8E2;
+    background: #586F1F;
     border-radius: 10px;
 }
 
@@ -127,7 +127,7 @@ a {
 
 .footer-text {
     /* margin-top: 14px; */
-    color: rgba(232, 232, 226, 0.60);
+    color: rgba(232, 232, 226, 0.70);
     font-family: Neue Montreal;
     font-size: 14px;
     font-weight: 400;
