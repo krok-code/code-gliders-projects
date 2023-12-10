@@ -8,3 +8,8 @@ export async function openProductModal(event) {
 		return;
 	}
 }
+
+const ParentElement = event.target.closest('li');
+const cardButton = ParentElement.querySelector('.js-addToCart-btn');
+const productId = cardButton.getAttribute('data-id');
+const productInfo = await getProducttById(productId);
