@@ -76,3 +76,48 @@ export function createPopularCard(product) {
         </li>
         `;
 }
+
+export function createDiscountCard(product) {
+  const { img, name, price, _id } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
+
+  return `
+      <li class="discount-product-card">
+      <div class="discount-img-wrapper">
+        <img
+          class="discount-card-img"
+          src="${img}"
+          alt="${name}"
+          loading="lazy"
+        />
+        <svg class="discount-svg-icon" width="60" height="60">
+          <use href="${iconsPath}#icon-discount"></use>
+        </svg>
+
+      </div>
+
+      <div class="discount-card-info" >
+          <h3 class="discount-card-title">${name}</h3>
+
+          <div class="discount-card-price">
+              <span class="span-price">&#36;${price}</span>
+              <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
+                  <svg class="cart-svg" width="18" height="18">
+                      <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                  </svg>
+              </button>
+          </div>
+      </div>
+  </li>`;
+}
+
+export function renderMarkup(data, typeOfCard, listOfCard) {
+  let markup;
+  typeOfCard === 'general'
+    ? (markup = data.map(product => createProductCard(product)))
+    : typeOfCard === 'popular'
+    ? (markup = data.map(product => createPopularCard(product)))
+    : (markup = data.map(product => createDiscountCard(product)));
+
+  listOfCard.innerHTML = markup.join('');
+}
