@@ -195,5 +195,9 @@ export async function addToCardFromModal(event) {
         btn.disabled = false;
       }
     });
+
+    localStorage.setItem('product', JSON.stringify(arrProducts));
+
+    getLength();
   }
 }
