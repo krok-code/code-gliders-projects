@@ -136,3 +136,50 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
+
+export async function addToCardFromModal(event) {
+  const productData = {};
+  const id = event.currentTarget.getAttribute('data-id');
+  const isInCart = arrProducts.some(product => product.id === id);
+
+  if (!isInCart) {
+    event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
+                <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+                </svg>`;
+    
+    const addToCartBtn = document.querySelectorAll('.js-addToCard-btn');
+    addToCartBtn.forEach(btn => {
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
+
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+        btn.disabled = true;
+      }
+    });
+
+    try {
+      const product = await getProducttById(id);
+      const { category, size, _id, name, price, img } = product;
+      productData.category = category;
+      productData.size = size;
+      productData.id = _id;
+      productData.name = name;
+      productData.price = price;
+      productData.img = img;
+    } catch (error) {
+      console.log(error);
+    }
+
+    const localStorage = window.localStorage;
+    arrProducts.push(productData);
+    localStorage.setItem('product', JSON.stringify(arrProducts));
+    getLength();
+  }
+
+  if (isInCart) {
+    event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
+        <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+        </svg>`;
+  }
+}
