@@ -1,6 +1,5 @@
 import './js/api.js';
 import './js/local-storage.js';
-import './js/popular-discount.js';
 import './js/main-page.js';
 import './js/header.js';
 import './js/counter.js';

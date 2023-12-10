@@ -1,4 +1,6 @@
 import localStorageAPI from './local-storage.js';
+
+
 export function renderCategoryList(list) {
   const listOfCategory = list.map(item => {
     return `<li class="filters-categories-item">${item}</li>`;
@@ -11,7 +13,6 @@ export function renderCategoryList(list) {
     );
 }
 
-// управління дропдаунів
 export function openDropDown(event) {
   const parentElement = this.closest('.filters-wrap');
   const svgElement = parentElement.querySelector('.filters-down-svg');
@@ -91,7 +92,6 @@ export function collectQueryParameters() {
   return queryParameters;
 }
 
-//визначення фільтра
 export function getFilter(arg) {
   let filter;
   switch (arg) {
