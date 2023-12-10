@@ -1,7 +1,7 @@
 
 
 
-import {arrProducts} from '../homePage.js';
+import {arrProducts} from '../main-page';
 
 
 import pathToSvg from '../../img/icons.svg';
