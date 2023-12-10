@@ -21,8 +21,6 @@ export const fetchDiscountProducts = () => {
 };
 
 //**Products list */
-export const apiUrl = 'https://food-boutique.b.goit.study/api/products';
-
 export async function fetchProductsFromApi(page, limit) {
   try {
     const response = await axios.get(apiUrl, {
