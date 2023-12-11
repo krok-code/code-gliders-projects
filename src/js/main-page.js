@@ -137,7 +137,7 @@ searchForm.addEventListener('submit', async event => {
   }
 });
 
-export async function addToCardFromModal(event) {
+export async function addToCartFromModal(event) {
   const productData = {};
   const id = event.currentTarget.getAttribute('data-id');
   const isInCart = arrProducts.some(product => product.id === id);
@@ -146,8 +146,8 @@ export async function addToCardFromModal(event) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
                 <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
                 </svg>`;
-    
-    const addToCartBtn = document.querySelectorAll('.js-addToCard-btn');
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
     addToCartBtn.forEach(btn => {
       let _id = btn.getAttribute('data-id');
       const passSvg = btn.querySelector('use');
@@ -172,8 +172,11 @@ export async function addToCardFromModal(event) {
     }
 
     const localStorage = window.localStorage;
+
     arrProducts.push(productData);
+
     localStorage.setItem('product', JSON.stringify(arrProducts));
+
     getLength();
   }
 
@@ -181,7 +184,7 @@ export async function addToCardFromModal(event) {
     event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
-    
+
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
 
