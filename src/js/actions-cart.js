@@ -39,7 +39,6 @@ function renderCarts(cartProducts) {
 renderCarts(cartProducts);
 
 document.querySelector('.delete-all-box').addEventListener('click', () => {
-  //   localStorage.clear();
   localStorageAPI.remove('product');
   getLength();
   document.querySelector('.section-cart').innerHTML = renderCartEmpty();
@@ -85,7 +84,7 @@ function renderCartProduct(product) {
         <div class="cart-info-top">
           <p class="cart-info-name-product">${name}</p>
           <svg class="cart-delete-icon">
-              <use href="${iconsPath}#icon-close"></use>
+              <use href="${iconsPath}#close"></use>
           </svg>
         </div>
   
@@ -221,7 +220,7 @@ function createMarkupOrderModal(product) {
   <div class="order-backdrop">
   <div class="order-modal">
       <svg class="order-close-icon">
-        <use href="${iconsPath}#icon-close"></use>
+        <use href="${iconsPath}#close"></use>
       </svg>
       <img class="order-image" src="${product[0].img}" alt="order-image" id="${product[0].id}">
       <h2 class="order-title">Order success</h2>
