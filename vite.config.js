@@ -10,19 +10,10 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
-    resolve: {
-      alias: {
-        '/@/': path.resolve(__dirname, 'src'),
-      },
-    },
     build: {
       sourcemap: true,
-
       rollupOptions: {
-        input: glob.sync('./src/*.html').reduce((entries, entry) => {
-          entries[path.basename(entry, '.html')] = path.resolve(__dirname, entry);
-          return entries;
-        }, {}),
+        input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
@@ -31,6 +22,7 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'commonHelpers.js',
         },
+        external: ['/assets/img/icons.svg'],
       },
       outDir: '../dist',
     },
