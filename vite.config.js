@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
-import path from 'path';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -22,7 +21,7 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'commonHelpers.js',
         },
-        external: ['/assets/img/icons.svg'],
+        external: ['/img/icons.svg'],
       },
       outDir: '../dist',
     },
