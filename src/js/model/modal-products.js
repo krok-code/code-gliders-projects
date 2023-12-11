@@ -35,7 +35,7 @@ export function onRenderModalProduct(product) {
           <div class="modal-product">
               <button type="button" class="modal-btn-close" data-modal-close>
                   <svg class="modal-svg-close" width="28" height="28">
-                      <use href="${pathToSvg}#close"></use>
+                      <use href="${pathToSvg}#icon-close"></use>
                   </svg>
               </button>
       
@@ -73,7 +73,7 @@ export function onRenderModalProduct(product) {
                   <button data-id=${_id} type="submit" class="modal-product-btn-price">
                   ${isInCart ? 'Remove from' : 'Add to'} 
                       <svg class="modal-btn-svg" width="18" height="18">
-                          <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
+                          <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                       </svg>
                   </button>
               </div>
