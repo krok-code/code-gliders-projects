@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
-import injectHTML from 'vite-plugin-html-inject';
+import htmlPlugin from 'vite-plugin-html';
 import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
@@ -22,13 +22,16 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
         external: ['/img/icons.svg'],
-        paths: {
-          '/@/': `${process.cwd()}/src/`,
+        treeshake: {
+          moduleSideEffects: false,
         },
       },
       outDir: '../dist',
       emptyOutDir: true,
     },
-    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+    plugins: [
+      htmlPlugin(),
+      FullReload(['./src/**/**.html']),
+    ],
   };
 });
