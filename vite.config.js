@@ -22,6 +22,9 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
         external: ['/img/icons.svg'],
+        paths: {
+          '/@/': `${process.cwd()}/src/`,
+        },
       },
       outDir: '../dist',
       emptyOutDir: true,
