@@ -1,10 +1,10 @@
 .filters {
-  /* background-color: var(--primary-bg-color); */
+  background-color: var(--primary-bg-color);
   padding-top: 37px;
   padding-bottom: 20px;
 }
 
-.filters-text {
+.filters-title {
   color: var(--span-info-color);
   margin-bottom: 10px;
   font-size: 14px;
@@ -20,16 +20,16 @@
 .filters-input::placeholder {
   color: #010101;
 
-  font-family: "Neue Montreal Regular";
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px
+  font-family: 'Neue Montreal Regular';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .filters-input,
 .filters-categories,
-.filters-allTypes  {
+.filters-allTypes {
   cursor: pointer;
 }
 
@@ -71,24 +71,24 @@ line-height: 24px
 
 .filters-down-svg {
   fill: var(--primary-bg-color);
-  stroke: var( --title-black-text-color);
+  stroke: var(--title-black-text-color);
   position: absolute;
   top: 50%;
   right: 10px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   transition: all 0.3s;
 }
 
 .rotate {
-  transform: translate(-50%,-50%) rotate(180deg);
+  transform: translate(-50%, -50%) rotate(180deg);
 }
 
 .filters-categories-list,
 .filters-allTypes-list {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    z-index: 2;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: 2;
   width: 100%;
   padding: 14px 20px;
   border-radius: 15px;
@@ -112,10 +112,10 @@ line-height: 24px
 
 .filters-categories-item,
 .filters-allTypes-item {
-    margin-bottom: 9px;
-    font-size: 14px;
-    color: var(--filter-color);
-    cursor: pointer;
+  margin-bottom: 9px;
+  font-size: 14px;
+  color: var(--filter-color);
+  cursor: pointer;
 }
 
 .filters-categories-item:hover,

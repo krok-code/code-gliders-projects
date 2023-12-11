@@ -110,3 +110,97 @@ allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
 
+searchForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  try {
+    const queryParameters = collectQueryParameters();
+    const response = await getProductsByQuery(queryParameters);
+    const productForRender = response.results;
+    productsListGeneral.innerHTML = '';
+    if (productForRender.length === 0) {
+      const sorryMessage = renderSorryMessage();
+      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
+    } else {
+      renderMarkup(productForRender, 'general', productsListGeneral);
+    }
+    let cardsDisc = document.querySelectorAll('.product-card-general');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export async function addToCartFromModal(event) {
+  const productData = {};
+  const id = event.currentTarget.getAttribute('data-id');
+  const isInCart = arrProducts.some(product => product.id === id);
+
+  if (!isInCart) {
+    event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
+                <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
+                </svg>`;
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
+
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#checkmark`);
+        btn.disabled = true;
+      }
+    });
+
+    try {
+      const product = await getProducttById(id);
+      const { category, size, _id, name, price, img } = product;
+      productData.category = category;
+      productData.size = size;
+      productData.id = _id;
+      productData.name = name;
+      productData.price = price;
+      productData.img = img;
+    } catch (error) {
+      console.log(error);
+    }
+
+    const localStorage = window.localStorage;
+
+    arrProducts.push(productData);
+
+    localStorage.setItem('product', JSON.stringify(arrProducts));
+
+    getLength();
+  }
+
+  if (isInCart) {
+    event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
+        <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+        </svg>`;
+
+    const idCard = event.currentTarget.getAttribute('data-id');
+    arrProducts = arrProducts.filter(item => item.id !== idCard);
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
+
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
+        btn.disabled = false;
+      }
+    });
+
+    localStorage.setItem('product', JSON.stringify(arrProducts));
+
+    getLength();
+  }
+}
