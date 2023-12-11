@@ -16,3 +16,11 @@ export function addNumberProd() {
 }
 
 addNumberProd();
+
+const cartProducts = localStorageAPI.load('product');
+document.addEventListener('DOMContentLoaded', event => {
+	if (cartProducts.length === 0) {
+		document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+	}
+	addScroll();
+});
