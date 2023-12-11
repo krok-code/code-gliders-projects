@@ -135,7 +135,7 @@ searchForm.addEventListener('submit', async event => {
   }
 });
 
-export async function addToCartFromModal(event) {
+export async function addToCardFromModal(event) {
   const productData = {};
   const id = event.currentTarget.getAttribute('data-id');
   const isInCart = arrProducts.some(product => product.id === id);
