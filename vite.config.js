@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
-import htmlPlugin from 'vite-plugin-html';
+import ViteHtmlPlugin from 'vite-plugin-html';
 import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
@@ -30,7 +30,7 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
     },
     plugins: [
-      htmlPlugin(),
+      ViteHtmlPlugin(),
       FullReload(['./src/**/**.html']),
     ],
   };
