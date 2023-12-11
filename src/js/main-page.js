@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     cardsPop.forEach(card => {
       card.addEventListener('click', openProductModal);
 
-      const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+      const addToCartBtn = document.querySelectorAll('.js-add-to-the-cart-btn');
       addToCartBtn.forEach(btn => {
         btn.addEventListener('click', saveToLocalStorage);
       });
@@ -128,7 +128,7 @@ searchForm.addEventListener('submit', async event => {
       card.addEventListener('click', openProductModal);
     });
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    const addToCartBtn = document.querySelectorAll('.js-add-to-the-cart-btn');
     addToCartBtn.forEach(btn => {
       btn.addEventListener('click', saveToLocalStorage);
     });
@@ -144,10 +144,10 @@ export async function addToCartFromModal(event) {
 
   if (!isInCart) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-                <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
+                <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                 </svg>`;
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    const addToCartBtn = document.querySelectorAll('.js-add-to-the-cart-btn');
     addToCartBtn.forEach(btn => {
       let _id = btn.getAttribute('data-id');
       const passSvg = btn.querySelector('use');
@@ -182,19 +182,19 @@ export async function addToCartFromModal(event) {
 
   if (isInCart) {
     event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
-        <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
+        <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
 
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    const addToCartBtn = document.querySelectorAll('.js-add-to-the-cart-btn');
     addToCartBtn.forEach(btn => {
       let _id = btn.getAttribute('data-id');
       const passSvg = btn.querySelector('use');
 
       if (_id === id) {
-        passSvg.setAttribute('href', `${iconsPath}#shopping-cart`);
+        passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
         btn.disabled = false;
       }
     });
