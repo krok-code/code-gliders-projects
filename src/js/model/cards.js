@@ -1,4 +1,4 @@
-import iconsPath from '/@/img/icons.svg';
+import iconsPath from '../img/icons.svg';
 import { arrProducts } from '../main-page.js';
 
 export function createProductCard(product) {
