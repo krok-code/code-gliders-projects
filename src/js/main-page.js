@@ -1,5 +1,5 @@
-import iconsPath from '../img/icons.svg';
-import pathToSvg from '../img/icons.svg';
+import iconsPath from './img/icons.svg';
+import pathToSvg from './img/icons.svg';
 import { getLength } from './header.js';
 import {
 openDropDown,
