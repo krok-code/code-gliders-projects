@@ -31,7 +31,7 @@ export function createProductCard(product) {
                   <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                       <svg class="cart-svg " width="18" height="18">
-                          <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                          <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                          
                       </svg>  
                   </button>
@@ -69,7 +69,7 @@ export function createPopularCard(product) {
                     
                 <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                     <svg class="popular-cart-svg" width="12" height="12">
-                        <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                        <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                     </svg>
                 </button>
             
@@ -103,7 +103,7 @@ export function createDiscountCard(product) {
               <span class="span-price">&#36;${price}</span>
               <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                   <svg class="cart-svg" width="18" height="18">
-                      <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                      <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                   </svg>
               </button>
           </div>
