@@ -6,12 +6,8 @@ import { renderSorryMessage } from './model/sorry.js';
 import { openProductModal } from './button-cart.js';
 import { saveToLocalStorage } from './add-to-the-cart.js';
 
-
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
-
-
-
 
 const options = {
   itemsPerPage: 1,
@@ -69,12 +65,9 @@ const paginationClick = async event => {
     });
   } catch (err) {
     console.log(err);
-    
   }
 };
 pagination.on('afterMove', paginationClick);
-
-
 
 const paginationUpdate = async event => {
   try {
