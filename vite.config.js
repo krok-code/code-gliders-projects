@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import glob from 'glob';
-import { ViteHtmlPlugin } from 'vite-plugin-html';
+import ViteHtmlPlugin from 'vite-plugin-html';
 import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
