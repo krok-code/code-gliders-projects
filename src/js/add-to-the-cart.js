@@ -6,7 +6,7 @@ import { arrProducts } from "./main-page.js";
 export async function saveToLocalStorage(event) {
 	const id = event.currentTarget.getAttribute('data-id');
 	const passSvg = event.currentTarget.querySelector('use');
-	passSvg.setAttribute('href', `${iconsPath}#checkmark`);
+	passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
 	event.currentTarget.setAttribute('disabled', 'true');
 	const productData = {};
 

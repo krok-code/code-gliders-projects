@@ -59,7 +59,7 @@ const paginationClick = async event => {
       card.addEventListener('click', openProductModal);
     });
 
-    const addToCartBtn = document.querySelectorAll('.js-add-to-the-cart-btn');
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
     addToCartBtn.forEach(btn => {
       btn.addEventListener('click', saveToLocalStorage);
     });
