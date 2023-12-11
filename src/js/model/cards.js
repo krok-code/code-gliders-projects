@@ -1,4 +1,4 @@
-import iconsPath from '../../img/icons.svg';
+import iconsPath from '.icons.svg';
 import { arrProducts } from '../main-page';
 
 export function createProductCard(product) {
@@ -31,13 +31,13 @@ export function createProductCard(product) {
                   <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                       <svg class="cart-svg " width="18" height="18">
-                          <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                          <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                          
                       </svg>  
                   </button>
               </div>
               <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : ""}" width="60" height="60">
-                <use href="${iconsPath}#icon-discount"></use>
+                <use href="${iconsPath}#discount"></use>
               </svg>
       </li>
       `;
@@ -69,7 +69,7 @@ export function createPopularCard(product) {
                     
                 <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                     <svg class="popular-cart-svg" width="12" height="12">
-                        <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                        <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                     </svg>
                 </button>
             
@@ -91,7 +91,7 @@ export function createDiscountCard(product) {
           loading="lazy"
         />
         <svg class="discount-svg-icon" width="60" height="60">
-          <use href="${iconsPath}#icon-discount"></use>
+          <use href="${iconsPath}#discount"></use>
         </svg>
 
       </div>
@@ -103,7 +103,7 @@ export function createDiscountCard(product) {
               <span class="span-price">&#36;${price}</span>
               <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                   <svg class="cart-svg" width="18" height="18">
-                      <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
+                      <use href="${iconsPath}${isInCart ? '#checkmark' : '#shopping-cart'}"></use>
                   </svg>
               </button>
           </div>
