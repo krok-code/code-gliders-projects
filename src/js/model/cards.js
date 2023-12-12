@@ -2,10 +2,10 @@ import iconsPath from '../../img/icons.svg';
 import { arrProducts } from '../homePage.js';
 
 export function createProductCard(product) {
-	let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;
-	const isInCart = arrProducts.some(product => product.id === _id);
+  let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
 
-	return `
+  return `
       <li class="product-card-general">
           <div class="img-wrapper">
             <img
@@ -47,6 +47,7 @@ export function createPopularCard(product) {
   const { img, name, category, size, popularity, _id } = product;
   const isInCart = arrProducts.some(product => product.id === _id);
 
+
   return `
         <li class="popular-product-card">
             <div class="poppular-img-wrapper">
@@ -80,6 +81,7 @@ export function createPopularCard(product) {
 export function createDiscountCard(product) {
   const { img, name, price, _id } = product;
   const isInCart = arrProducts.some(product => product.id === _id);
+
 
   return `
       <li class="discount-product-card">
