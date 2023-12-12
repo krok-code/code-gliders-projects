@@ -56,7 +56,6 @@ export function changeCategoriesValue(event) {
 }
 
 export function changeTypesValue(event) {
-  // Отримання елементів та нового значення типу
   const input = document.querySelector('.filters-allTypes');
   const list = document.querySelector('.filters-allTypes-list');
   const newValue = event.target.textContent;
@@ -88,6 +87,16 @@ export function collectQueryParameters() {
     keyword: searchWord,
     filterSearch: `by${filterSearch}`,
   };
+
+  const savedParams = localStorageAPI.load('queryParams');
+  if (
+    savedParams &&
+    savedParams.category === queryParameters.category &&
+    savedParams.keyword === queryParameters.keyword &&
+    savedParams.filterSearch === queryParameters.filterSearch
+  ) {
+    return null;
+  }
 
   const paramsForBack = {
     category,
