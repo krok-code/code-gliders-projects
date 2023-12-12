@@ -1,4 +1,4 @@
-import localStorageAPI from "./local-storage.js";
+import localStorageAPI from "./localStorage.js";
 import iconsPath from '../img/icons.svg';
 import emptyCart from '../img/yellow-shopping-basket.webp';
 import emptyCartRet from '../img/yellow-shopping-basket@2x.webp';
