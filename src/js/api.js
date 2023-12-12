@@ -28,15 +28,16 @@ export async function getAllProducts(queryParams) {
   })
   if (keyword !== '') {
     params.append('keyword', keyword);
-}
-
-if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
-  params.append('category', category);
-}
-
-    const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
-    return response.data;
   }
+  
+  if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
+    params.append('category', category);
+  }
+
+  const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
+  return response.data;
+
+}
 
 export async function getDiscountProducts() {
   const response = await axios.get(
