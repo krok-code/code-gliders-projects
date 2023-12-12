@@ -69,6 +69,7 @@ export function changeTypesValue(event) {
 }
 
 export function collectQueryParameters() {
+  // Отримання значень фільтрів, категорій та ключового слова
   const filterSearch = document
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
@@ -83,12 +84,26 @@ export function collectQueryParameters() {
 
   const searchWord = document.querySelector('.filters-input').value;
 
+  // Формування об'єкту з параметрами запиту
   const queryParameters = {
     category,
     keyword: searchWord,
     filterSearch: `by${filterSearch}`,
   };
 
+  // Перевірка, чи поточні параметри відмінні від збережених
+  const savedParams = localStorageAPI.load('queryParams');
+  if (
+    savedParams &&
+    savedParams.category === queryParameters.category &&
+    savedParams.keyword === queryParameters.keyword &&
+    savedParams.filterSearch === queryParameters.filterSearch
+  ) {
+    // Повернення null, якщо параметри збігаються
+    return null;
+  }
+
+  // Формування об'єкту для збереження у локальне сховище
   const paramsForBack = {
     category,
     keyword: searchWord,
@@ -97,7 +112,10 @@ export function collectQueryParameters() {
     limit: 9,
   };
 
+  // Збереження параметрів у локальне сховище
   localStorageAPI.save('queryParams', paramsForBack);
+
+  // Повернення об'єкту параметрів
   return queryParameters;
 }
 
