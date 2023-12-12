@@ -1,1 +1,334 @@
-<!DOCTYPE html><html lang="en"><head><script nomodule defer src="/code-gliders-projects/cart-page.78a08f17.js"></script><script nomodule defer src="/code-gliders-projects/index.runtime.94fb8d20.js"></script><script type="module" src="/code-gliders-projects/cart-page.07f71a33.js"></script><script type="module" src="/code-gliders-projects/index.runtime.6ab2fd31.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Food Boutique</title><link rel="stylesheet" href="/code-gliders-projects/cart-page.615e5a3e.css"></head><body>  <load ="partials header.html"> <main>  <load ="partials hero.html">  <load ="partials filters.html">  <load ="partials product-list.html"> </load></load></load></main>  <load ="partials footer.html"> <script type="module" src="/code-gliders-projects/index.51845f2a.js"></script><script src="/code-gliders-projects/index.94e7a6c6.js" nomodule defer></script> </load></load></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Boutique</title>
+    <link rel="shortcut icon" href="./images/favicon.icon.ico" />
+    
+    <script type="module" crossorigin src="/code-gliders-projects/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/code-gliders-projects/assets/vendor-58a52777.js">
+    <link rel="modulepreload" crossorigin href="/code-gliders-projects/assets/footer-59b59d4f.js">
+    <link rel="stylesheet" href="/code-gliders-projects/assets/footer-d9637203.css">
+    <link rel="stylesheet" href="/code-gliders-projects/assets/vendor-21fdfc57.css">
+  </head>
+  <body>
+    <!-- HEADER - ANTONINA -->
+    <header class="header-page">
+  <div class="container header-page-container">
+    <nav class="header-page-navigation">
+      <ul class="header-list">
+        <li class="header-first-elements">
+          <a class="header-logotype" href="./index.html">
+            <svg
+              class="header-logotype-icon"
+              width="28"
+              height="28"
+              aria-label="Food Boutique logotype icon"
+            >
+              <use href="./images/icons.svg#cabbage"></use></svg
+            ><span>Food Boutique</span>
+          </a>
+        </li>
+        <li class="header-second-elements">
+          <a class="header-home-ref" href="./index.html">Home</a>
+        </li>
+        <li class="header-third-elements">
+          <a class="header-shopping-card-link" href="./cart.html">
+            <svg
+              class="header-logotype-icon-card"
+              width="38"
+              height="38"
+              aria-label="header-shopping-card"
+            >
+              <use href="./images/icons.svg#shopping-cart"></use>
+            </svg>
+            <p class="hidden">CART (<span id="header-length"></span>)</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main>
+      <!-- HERO - MARINA -->
+      <section class="hero">
+  <div class="container hero-container">
+    <h1 class="hero-title">
+      Welcome to the <span class="hero-title-accent">Food</span> Boutique!
+    </h1>
+    <p class="hero-text">
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+    <div id="slider">
+      <div class="hero-picture-block slider-container">
+        <picture class="hero-picture active">
+          <source
+            media="(min-width: 1440px)"
+            srcset="./images/base_image.webp 1x, ./images/base_image@2x.webp 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./images/base_image_tab.webp    1x,
+              ./images/base_image_tab@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            srcset="
+              ./images/base-image_mob.webp    1x,
+              ./images/base-image_mob@2x.webp 2x
+            "
+          />
+          <img
+            class="hero-img"
+            src="./images/base_image.jpg"
+            alt="Women sportswear working out outdoors"
+            width="259"
+            loading="lazy"
+          />
+        </picture>
+        <picture class="hero-picture">
+          <source
+            media="(min-width: 1440px)"
+            srcset="./images/base_bread.webp 1x, ./images/base_bread@2x.webp 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./images/base_bread_tab.webp 1x,
+              ./images/base_bread_tab.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            srcset="
+              ./images/base-bread_mob.webp    1x,
+              ./images/base-bread_mob@2x.webp 2x
+            "
+          />
+          <img
+            class="hero-img"
+            src="./images/base_bread.jpg"
+            alt="Women sportswear working out outdoors"
+            width="259"
+            loading="lazy"
+          />
+        </picture>
+        <picture class="hero-picture">
+          <source
+            media="(min-width: 1440px)"
+            srcset="./images/base_meat.webp 1x, ./images/base_meat@2x.webp 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./images/base_meat_tab.webp    1x,
+              ./images/base_meat_tab@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            srcset="
+              ./images/base-meat_mob.webp    1x,
+              ./images/base-meat_mob@2x.webp 2x
+            "
+          />
+          <img
+            class="hero-img"
+            src="./images/base_meat.jpg"
+            alt="Women sportswear working out outdoors"
+            width="259"
+            loading="lazy"
+          />
+        </picture>
+        <svg class="organic-food-icon" width="100" height="100">
+          <use href="./images/icons.svg#organic-food"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- PARTIALS - DMYTRO -->
+      <section class="filters">
+  <div class="container filters-container">
+    <p class="filters-title">Filters:</p>
+    <form class="filters-form">
+      <div class="filters-search-wrap">
+        <input
+          class="filters-input"
+          type="text"
+          placeholder="Search for anything"
+        />
+        <button class="filters-search-btn" type="submit">
+          <svg class="search-svg" width="20" height="20">
+            <use href="./images/icons.svg#baseline-search"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="filters-wrap">
+        <div class="filters-categories">Categories</div>
+        <ul class="filters-categories-list"></ul>
+
+        <svg class="filters-down-svg" width="20" height="20">
+          <use href="./images/icons.svg#chevron-down"></use>
+        </svg>
+      </div>
+
+      <div class="filters-wrap">
+        <div class="filters-allTypes">A to Z</div>
+        <ul class="filters-allTypes-list">
+          <li class="filters-allTypes-item">A to Z</li>
+          <li class="filters-allTypes-item">Z to A</li>
+          <li class="filters-allTypes-item">Cheaper first</li>
+          <li class="filters-allTypes-item">Expensive first</li>
+          <li class="filters-allTypes-item">Popular</li>
+          <li class="filters-allTypes-item">Not popular</li>
+        </ul>
+
+        <svg class="filters-down-svg" width="20" height="20">
+          <use href="./images/icons.svg#chevron-down"></use>
+        </svg>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+      <!-- PRODUCT-LIST - VITALIY, MYKOLA, MARINA -->
+      <section class="product-list">
+  <div class="product-list-container container">
+    <div>
+      <ul class="products-list-general"></ul>
+      <div id="tui-pagination-container" class="tui-pagination"></div>
+    </div>
+    <div class="container-popular-discount">
+      <h3 class="popular-title">Popular products</h3>
+      <ul class="products-list-popular"></ul>
+      <h3 class="discount-title">Discount products</h3>
+      <ul class="products-list-discount"></ul>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <!-- FOOTER - ANTONINA -->
+    <footer class="footer-section">
+  <div class="container">
+    <div class="footer-l-r">
+      <div class="footer-left">
+        <div class="footer-logo-wrapper">
+          <a class="footer-logo-link" href="./index.html">
+            <svg class="footer-logo-icon">
+              <use href="./images/icons.svg#cabbage"></use>
+            </svg>
+            <span class="footer-logo-span">Food Boutique</span>
+          </a>
+        </div>
+        <div class="footer-soc-wrapper">
+          <ul class="footer-soc-list">
+            <li class="footer-soc-item">
+              <a
+                href="https://www.facebook.com/goITclub/"
+                class="footer-soc-link"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <svg class="footer-soc-svg" height="40" width="40">
+                  <use href="./images/icons.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer-soc-item">
+              <a
+                href="https://www.instagram.com/goitclub/"
+                class="footer-soc-link"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <svg class="footer-soc-svg" height="40" width="40">
+                  <use href="./images/icons.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer-soc-item">
+              <a
+                href="https://www.youtube.com/c/GoIT"
+                class="footer-soc-link"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <svg class="footer-soc-svg" height="40" width="40">
+                  <use href="./images/icons.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-text-wrapper">
+          <h2 class="footer-title">
+            Discover the Variety of Flavors and Quality
+          </h2>
+          <p class="footer-text">
+            An online store where you will find fresh, natural and delicious
+            products for a healthy life and unforgettable gastronomic
+            adventures.
+          </p>
+        </div>
+        <div class="footer-form-wrapper">
+          <h3 class="footer-form-title">
+            Subscribe and learn about new products!
+          </h3>
+          <form class="footer-form">
+            <label class="footer-form-label">
+              <input
+                class="footer-form-input"
+                type="email"
+                placeholder="Email"
+                id="user-email"
+                required
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+              />
+            </label>
+            <button type="submit" class="footer-form-btn">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-privacy-wrapper">
+      <p class="footer-subtitle">Food Boutique. All rights reserved.</p>
+      <div class="footer-privacy-right">
+        <a
+          href="#"
+          class="footer-privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Privacy Policy</a
+        >
+        <span class="footer-span">/</span>
+        <a
+          href="#"
+          class="footer-terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Terms of Service</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>
