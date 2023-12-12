@@ -1,4 +1,4 @@
-import localStorageAPI from './local-storage.js';
+import localStorageAPI from './localStorage.js';
 
 export let arrProducts = [];
 
