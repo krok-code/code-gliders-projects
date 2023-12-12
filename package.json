@@ -2,15 +2,14 @@
   "name": "code-gliders-projects",
   "private": true,
   "version": "0.0.0",
-  "type":"module",
-  
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/code-gliders-projects/",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "glob": "10.3.10",
+    "glob": "^10.3.10",
     "vite": "5.0.8"
   },
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
