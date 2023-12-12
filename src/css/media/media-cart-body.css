@@ -235,42 +235,12 @@
   }
 }
 
-.cart-order-info-text {
-  color: var(--title-black-text-color);
-  font-family: Neue Montreal Medium;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.11;
-  margin-bottom: 15px;
-}
-
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
   .cart-order-info-text {
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 25px;
   }
-}
-
-.datetime-label {
-  font-family: Neue Montreal Medium;
-  margin-left: 10px;
-}
-
-.datetime {
-  margin-top: 10px;
-}
-
-.cart-order-info-input {
-  color: var(--title-black-text-color);
-  border-radius: 30px;
-  border: 1px solid var(--span-info-color);
-  padding: 12px 12px 12px 20px;
-  font-family: Neue Montreal Regular;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.28;
-  margin-bottom: 15px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
@@ -280,20 +250,6 @@
     font-size: 18px;
     line-height: 1.33;
   }
-}
-
-.cart-order-info-btn {
-  width: 100%;
-  background: var(--secondary-bg-green-color);
-  color: var(--title-white-text-color);
-  border: none;
-  border-radius: 30px;
-  outline: var(--title-black-text-color);
-  padding: 12px;
-  font-family: Neue Montreal Medium;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.28;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1440px) {

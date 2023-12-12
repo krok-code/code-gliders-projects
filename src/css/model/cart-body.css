@@ -36,7 +36,6 @@ footer {
   align-items: center;
   margin-bottom: 14px;
 }
-
 .cart-icon-shopping {
   padding: 10px;
   border-radius: 50%;
@@ -325,5 +324,49 @@ footer {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  line-height: 1.28;
+}
+
+.cart-order-info-text {
+  color: var(--title-black-text-color);
+  font-family: Neue Montreal Medium;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+  margin-bottom: 15px;
+}
+
+.datetime-label {
+  font-family: Neue Montreal Medium;
+  margin-left: 10px;
+}
+
+.datetime {
+  margin-top: 10px;
+}
+
+.cart-order-info-input {
+  color: var(--title-black-text-color);
+  border-radius: 30px;
+  border: 1px solid var(--span-info-color);
+  padding: 12px 12px 12px 20px;
+  font-family: Neue Montreal Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  margin-bottom: 15px;
+}
+
+.cart-order-info-btn {
+  width: 100%;
+  background: var(--secondary-bg-green-color);
+  color: var(--title-white-text-color);
+  border: none;
+  border-radius: 30px;
+  outline: var(--title-black-text-color);
+  padding: 12px;
+  font-family: Neue Montreal Medium;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.28;
 }
