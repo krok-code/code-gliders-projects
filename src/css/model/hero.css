@@ -46,6 +46,8 @@ img {
   background-color: var(--primary-bg-color);
   padding-top: 37px;
   padding-bottom: 37px;
+  position: relative;
+  z-index: -2;
 }
 
 .hero-title {
