@@ -33,6 +33,13 @@
   cursor: pointer;
 }
 
+@media only screen and (min-width: 768px) {
+  .filters-form {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
 .filters-search-wrap,
 .filters-wrap {
   position: relative;
@@ -46,6 +53,20 @@
   border-radius: 30px;
   border: 1px solid var(--span-info-color);
   background-color: transparent;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters-input {
+    width: 269px;
+  }
+
+  .filters-categories {
+    width: 189px;
+  }
+
+  .filters-allTypes {
+    width: 200px;
+  }
 }
 
 .filters-allTypes {
@@ -121,4 +142,16 @@
 .filters-categories-item:hover,
 .filters-allTypes-item:hover {
   color: var(--title-black-text-color);
+}
+
+@media only screen and (min-width: 1440px) {
+  .filters-input,
+  .filters-categories,
+  .filters-allTypes {
+    font-family: 'Neue Montreal Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 }
