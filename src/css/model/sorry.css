@@ -18,3 +18,15 @@
 .emoji-sorry {
   font-size: 36px;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .sorry-wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  .sorry-message-text {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+}
