@@ -1,3 +1,12 @@
+@media screen and (min-width: 1440px) {
+  .products-list-popular {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+    margin-bottom: -20px;
+  }
+}
+
 @media only screen and (min-width: 376px) and (max-width: 768px) {
   .general-span-container {
     padding-left: 20px;
@@ -215,9 +224,9 @@
   .products-list-popular {
     height: 604px;
     row-gap: 13px;
-    padding-bottom: 40px;
+
     flex-wrap: wrap;
-    margin-bottom: 0;
+    margin-bottom: 22;
   }
   .popular-product-card {
     width: 275px;
