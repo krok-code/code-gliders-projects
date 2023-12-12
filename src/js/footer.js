@@ -27,6 +27,6 @@ export function subscribeMailNewProduct(event) {
     .catch(error => {
       Notify.warning('Subscription already exists!');
     });
-
+  
   emailInput.value = '';
 }

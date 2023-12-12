@@ -1,13 +1,12 @@
-import localStorageAPI from "./local-storage.js";
+import localStorageAPI from './localStorage.js';
 import iconsPath from '../img/icons.svg';
 import emptyCart from '../img/yellow-shopping-basket.webp';
 import emptyCartRet from '../img/yellow-shopping-basket@2x.webp';
 import emptyCartMob from '../img/yellow-shopping-basket_mob.webp';
 import emptyCartMobRet from '../img/yellow-shopping-basket_mob@2x.webp';
 import emptyCartBase from '../img/yellow-shopping-basket.png';
-
-import { getLength } from "./header.js";
-import { order } from "./api.js";
+import { getLength } from './header.js';
+import { order } from './api.js';
 
 export function addNumberProd() {
   const arrFromLS = localStorageAPI.load('product');
@@ -16,7 +15,6 @@ export function addNumberProd() {
   } `;
 }
 addNumberProd();
-
 
 const cartProducts = localStorageAPI.load('product');
 document.addEventListener('DOMContentLoaded', event => {
@@ -170,7 +168,6 @@ function calculatePrice() {
   spanTotalPrice.innerHTML = totalPrice.toFixed(2);
 }
 calculatePrice();
-
 window.addEventListener('click', event => {
   let counter;
   if (
@@ -212,7 +209,10 @@ function openModalOrder(event) {
   event.preventDefault();
   let buyProduct = localStorageAPI.load('product');
 
-  document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal(buyProduct));
+  document.body.insertAdjacentHTML(
+    'afterbegin',
+    createMarkupOrderModal(buyProduct)
+  );
 }
 
 function createMarkupOrderModal(product) {
@@ -234,7 +234,10 @@ document.body.addEventListener('click', closeOrderModal);
 
 function closeOrderModal(event) {
   const orderBackdrop = document.querySelector('.order-backdrop');
-  if (event.target.closest(".order-close-icon") || event.target.classList.contains("order-backdrop")) {
+  if (
+    event.target.closest('.order-close-icon') ||
+    event.target.classList.contains('order-backdrop')
+  ) {
     orderBackdrop.classList.add('is-hidden');
 
     document.querySelector('.section-cart').innerHTML = renderCartEmpty();

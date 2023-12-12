@@ -1,3 +1,5 @@
+import iconsPath from '../img/icons.svg';
+import pathToSvg from '../img/icons.svg';
 import { getLength } from './header.js';
 import {
   openDropDown,
@@ -18,7 +20,7 @@ import {
 import { renderMarkup } from './model/cards.js';
 import { openProductModal } from './button-cart.js';
 import { saveToLocalStorage } from './add-to-the-cart.js';
-import localStorageAPI from './local-storage.js';
+import localStorageAPI from './localStorage.js';
 import { renderSorryMessage } from './model/sorry.js';
 
 const searchForm = document.querySelector('.filters-form');
@@ -142,7 +144,7 @@ export async function addToCartFromModal(event) {
 
   if (!isInCart) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-                <use class="modal-icon-svg" href="./img/icons.svg#shopping-cart"></use>
+                <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
                 </svg>`;
 
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
@@ -151,7 +153,7 @@ export async function addToCartFromModal(event) {
       const passSvg = btn.querySelector('use');
 
       if (_id === id) {
-        passSvg.setAttribute('href', './img/icons.svg#checkmark');
+        passSvg.setAttribute('href', `${iconsPath}#checkmark`);
         btn.disabled = true;
       }
     });
@@ -180,7 +182,7 @@ export async function addToCartFromModal(event) {
 
   if (isInCart) {
     event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
-        <use class="modal-icon-svg" href="./img/icons.svg#shopping-cart"></use>
+        <use class="modal-icon-svg" href="${pathToSvg}#shopping-cart"></use>
         </svg>`;
 
     const idCard = event.currentTarget.getAttribute('data-id');
@@ -192,7 +194,7 @@ export async function addToCartFromModal(event) {
       const passSvg = btn.querySelector('use');
 
       if (_id === id) {
-        passSvg.setAttribute('href', './img/icons.svg#shopping-cart');
+        passSvg.setAttribute('href', `${iconsPath}#shopping-cart`);
         btn.disabled = false;
       }
     });

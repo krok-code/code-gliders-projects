@@ -11,6 +11,7 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
+
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
@@ -21,10 +22,8 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'commonHelpers.js',
         },
-        external: ['/img/icons.svg'],
       },
       outDir: '../dist',
-      emptyOutDir: true,
     },
     plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };

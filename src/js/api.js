@@ -1,42 +1,44 @@
 import axios from 'axios';
-import {getFilter} from './filters.js';
+import { getFilter } from './filters.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
-
-
-export async  function getCategories() {
-  const response = await axios.get(`https://food-boutique.b.goit.study/api/products/categories`);
+export async function getCategories() {
+  const response = await axios.get(
+    `https://food-boutique.b.goit.study/api/products/categories`
+  );
   return response.data;
 }
 
 export async function getAllProducts(queryParams) {
-  let {keyword, category, page, limit, filterSearch} = queryParams
+  let { keyword, category, page, limit, filterSearch } = queryParams;
 
   const screenWidth = window.innerWidth;
 
   if (screenWidth < 768) {
-    limit = 6; 
+    limit = 6;
   } else if (screenWidth >= 768 && screenWidth < 1440) {
-    limit = 8; 
+    limit = 8;
   } else {
     limit = 9;
   }
-  
+
   const params = new URLSearchParams({
     page,
     limit,
-  })
+  });
   if (keyword !== '') {
     params.append('keyword', keyword);
-}
-
-if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
-  params.append('category', category);
-}
-
-    const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
-    return response.data;
   }
+
+  if (category !== '' && category !== 'Show_all' && category !== 'Categories') {
+    params.append('category', category);
+  }
+
+  const response = await axios.get(
+    `${BASE_URL}?${params}&${getFilter(filterSearch)}`
+  );
+  return response.data;
+}
 
 export async function getDiscountProducts() {
   const response = await axios.get(
@@ -59,9 +61,9 @@ export async function getProductsByQuery(queryParams) {
   const screenWidth = window.innerWidth;
 
   if (screenWidth < 768) {
-    limit = 6; 
+    limit = 6;
   } else if (screenWidth >= 768 && screenWidth < 1440) {
-    limit = 8; 
+    limit = 8;
   } else {
     limit = 9;
   }
@@ -73,17 +75,20 @@ export async function getProductsByQuery(queryParams) {
 
   if (keyword !== '') {
     params.append('keyword', keyword);
-}
+  }
 
-if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
+  if (category !== '' && category !== 'Show_all' && category !== 'Categories') {
     params.append('category', category);
-}
+  }
 
- response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
- 
+  response = await axios.get(
+    `${BASE_URL}?${params}&${getFilter(filterSearch)}`
+  );
+
   return response.data;
 }
 
+// get
 export async function getProducttById(id) {
   const response = await axios.get(
     `https://food-boutique.b.goit.study/api/products/${id}`
@@ -91,6 +96,7 @@ export async function getProducttById(id) {
   return response.data;
 }
 
+// POST
 export async function registrSubscription(client) {
   const response = await axios.post(
     `https://food-boutique.b.goit.study/api/subscription`,
