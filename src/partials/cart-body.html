@@ -2,21 +2,19 @@
   <div class="container posrel">
     <h2 class="cart-title">
       <svg class="cart-icon-shopping">
-        <use href="./images/icons.svg#icon-shopping-cart"></use>
+        <use href="./images/icons.svg#shopping-cart"></use>
       </svg>
       Cart (<span class="cart-number-purchases">3</span>)
     </h2>
     <div class="delete-all-box">
       <p class="delete-all-text">Delete all</p>
       <svg class="delete-all-icon" width="24" height="24">
-        <use href="./images/icons.svg#icon-close"></use>
+        <use href="./images/icons.svg#close"></use>
       </svg>
     </div>
 
     <div class="cart-content">
-      <ul class="cart-shopping-list cart-products">
-       
-      </ul>
+      <ul class="cart-shopping-list cart-products"></ul>
 
       <div class="cart-order">
         <h3 class="cart-title-your-order">Your Order</h3>
@@ -29,9 +27,20 @@
         </div>
         <form action="#" class="cart-form">
           <p class="cart-order-info-text">Enter your details for the order</p>
-          <input class="cart-order-info-input" type="email" name="email" id="mail" placeholder="Mail: Enter your email" required
-            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
-          <button class="cart-order-info-btn cart-form-bt" type="submit" aria-label="сheckout">
+          <input
+            class="cart-order-info-input"
+            type="email"
+            name="email"
+            id="mail"
+            placeholder="Mail: Enter your email"
+            required
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+          />
+          <button
+            class="cart-order-info-btn cart-form-bt"
+            type="submit"
+            aria-label="сheckout"
+          >
             Checkout
           </button>
         </form>
