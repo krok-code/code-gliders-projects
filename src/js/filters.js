@@ -1,18 +1,19 @@
 import localStorageAPI from './localStorage.js';
 
 export function renderCategoryList(list) {
-  const updatedList = [...list, 'All'];
+  const updatedList = [...list, 'Show all'];
 
   const listOfCategory = updatedList.map(item => {
     return `<li class="filters-categories-item" data-category="${item}">${item}</li>`;
   });
 
-  document
-    .querySelector('.filters-categories-list')
-    .insertAdjacentHTML(
-      'beforeend',
-      listOfCategory.join('').replaceAll('_', ' ')
-    );
+  const listElement = document.querySelector('.filters-categories-list');
+  listElement.insertAdjacentHTML(
+    'beforeend',
+    listOfCategory.join('').replaceAll('_', ' ')
+  );
+
+  console.log('Rendered Category List:', listOfCategory);
 }
 
 export function openDropDown(event) {
@@ -35,6 +36,13 @@ export function rotateButton(event) {
   }
 }
 
+function triggerSearchButton() {
+  const searchButton = document.querySelector('.filters-search-btn');
+  if (searchButton) {
+    searchButton.click();
+  }
+}
+
 export function changeCategoriesValue(event) {
   const input = document.querySelector('.filters-categories');
   const list = document.querySelector('.filters-categories-list');
@@ -43,9 +51,12 @@ export function changeCategoriesValue(event) {
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
+
+  triggerSearchButton();
 }
 
 export function changeTypesValue(event) {
+  // Отримання елементів та нового значення типу
   const input = document.querySelector('.filters-allTypes');
   const list = document.querySelector('.filters-allTypes-list');
   const newValue = event.target.textContent;
@@ -53,6 +64,8 @@ export function changeTypesValue(event) {
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
+
+  triggerSearchButton();
 }
 
 export function collectQueryParameters() {
@@ -60,7 +73,7 @@ export function collectQueryParameters() {
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
     .join('');
-  
+
   const categoryElement = document.querySelector('.filters-categories');
   const categoryText = categoryElement.textContent.trim();
   const category =
@@ -108,6 +121,9 @@ export function getFilter(arg) {
       break;
     case 'byNotpopular':
       filter = 'byPopularity=true';
+      break;
+    case 'Show all':
+      filter = '';
       break;
     default:
       filter = 'byABC=true';
