@@ -1,10 +1,12 @@
 import localStorageAPI from './localStorage.js';
 
-
 export function renderCategoryList(list) {
-  const listOfCategory = list.map(item => {
-    return `<li class="filters-categories-item">${item}</li>`;
+  const updatedList = [...list, 'All'];
+
+  const listOfCategory = updatedList.map(item => {
+    return `<li class="filters-categories-item" data-category="${item}">${item}</li>`;
   });
+
   document
     .querySelector('.filters-categories-list')
     .insertAdjacentHTML(
@@ -18,28 +20,18 @@ export function openDropDown(event) {
   const svgElement = parentElement.querySelector('.filters-down-svg');
   const list = parentElement.querySelector('ul');
 
+  list.classList.toggle('list-active');
+  svgElement.classList.toggle('rotate');
+}
+
+export function rotateButton(event) {
+  this.classList.toggle('rotate');
+  const list = this.previousElementSibling;
+
   if (list.classList.contains('list-active')) {
     list.classList.remove('list-active');
   } else {
     list.classList.add('list-active');
-  }
-  if (svgElement.classList.contains('rotate')) {
-    svgElement.classList.remove('rotate');
-  } else {
-    svgElement.classList.add('rotate');
-  }
-}
-
-export function rotateButton(event) {
-  if (this.classList.contains('rotate')) {
-    this.classList.remove('rotate');
-  } else {
-    this.classList.add('rotate');
-  }
-  if (this.previousElementSibling.classList.contains('list-active')) {
-    this.previousElementSibling.classList.remove('list-active');
-  } else {
-    this.previousElementSibling.classList.add('list-active');
   }
 }
 
@@ -68,12 +60,16 @@ export function collectQueryParameters() {
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
     .join('');
-  const category = document
-    .querySelector('.filters-categories')
-    .textContent.split(' ')
-    .join('_')
-    .replace('/', '&');
+  
+  const categoryElement = document.querySelector('.filters-categories');
+  const categoryText = categoryElement.textContent.trim();
+  const category =
+    categoryText.toLowerCase() === 'all'
+      ? ''
+      : categoryText.split(' ').join('_').replace('/', '&');
+
   const searchWord = document.querySelector('.filters-input').value;
+
   const queryParameters = {
     category,
     keyword: searchWord,
