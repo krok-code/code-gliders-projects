@@ -80,6 +80,16 @@ export function collectQueryParameters() {
     filterSearch: `by${filterSearch}`,
   };
 
+  const savedParams = localStorageAPI.load('queryParams');
+  if (
+    savedParams &&
+    savedParams.category === queryParameters.category &&
+    savedParams.keyword === queryParameters.keyword &&
+    savedParams.filterSearch === queryParameters.filterSearch
+  ) {
+    return null;
+  }
+
   const paramsForBack = {
     category,
     keyword: searchWord,
