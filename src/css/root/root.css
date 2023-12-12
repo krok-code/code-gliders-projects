@@ -1,4 +1,8 @@
 :root {
+  /* Fonts /
+    --primary-font: Neue Montreal;
+    --logo-font: FONTSPRING DEMO - Quincy CF Black;
+    / Colors */
   --primary-bg-color: #e8e8e2;
   --title-black-text-color: #010101;
   --secondary-text-color: #0101014d;
@@ -11,6 +15,8 @@
   --modal-text: rgba(1, 1, 1, 0.7);
   --pagination-color: #a3a3a3;
   --white-color: #fff;
+
+  --scroll-color: #e8e8e24d;
   --span-info-color: rgba(1, 1, 1, 0.3);
   --hero-color: rgba(1, 1, 1, 0.8);
   --footer-color: rgba(232, 232, 226, 0.6);
