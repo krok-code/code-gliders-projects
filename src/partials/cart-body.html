@@ -2,19 +2,21 @@
   <div class="container posrel">
     <h2 class="cart-title">
       <svg class="cart-icon-shopping">
-        <use href="./img/icons.svg#shopping-cart"></use>
+        <use href="./images/icons.svg#icon-shopping-cart"></use>
       </svg>
       Cart (<span class="cart-number-purchases">3</span>)
     </h2>
     <div class="delete-all-box">
       <p class="delete-all-text">Delete all</p>
       <svg class="delete-all-icon" width="24" height="24">
-        <use href="./img/icons.svg#close"></use>
+        <use href="./images/icons.svg#icon-close"></use>
       </svg>
     </div>
 
     <div class="cart-content">
-      <ul class="cart-shopping-list cart-products"></ul>
+      <ul class="cart-shopping-list cart-products">
+       
+      </ul>
 
       <div class="cart-order">
         <h3 class="cart-title-your-order">Your Order</h3>
@@ -27,49 +29,9 @@
         </div>
         <form action="#" class="cart-form">
           <p class="cart-order-info-text">Enter your details for the order</p>
-          <input
-            class="cart-order-info-input"
-            type="email"
-            name="email"
-            placeholder="Mail: Enter your email"
-            required
-            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-          />
-          <label class="cart-order-info-label"> </label>
-          <input
-            class="cart-order-info-input"
-            type="text"
-            placeholder="Name: Enter your name"
-            id="name"
-          />
-          <label class="cart-order-info-label"> </label>
-          <input
-            class="cart-order-info-input"
-            type="tel"
-            placeholder="Phone number:"
-            id="phone"
-          />
-          <label class="cart-order-info-label"> </label>
-          <input
-            class="cart-order-info-input"
-            type="text"
-            placeholder="Delivery address:"
-            id="address"
-          />
-          <label class="cart-order-info-label datetime-label">
-            Delivery date and time:
-          </label>
-          <input
-            class="cart-order-info-input datetime"
-            id="datetime"
-            type="text"
-            name="datetime"
-          />
-          <button
-            class="cart-order-info-btn cart-form-bt"
-            type="submit"
-            aria-label="сheckout"
-          >
+          <input class="cart-order-info-input" type="email" name="email" id="mail" placeholder="Mail: Enter your email" required
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
+          <button class="cart-order-info-btn cart-form-bt" type="submit" aria-label="сheckout">
             Checkout
           </button>
         </form>
