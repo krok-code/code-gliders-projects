@@ -3,14 +3,16 @@ import iconsPath from "../img/icons.svg"
 import {getLength} from './header.js'
 import { arrProducts } from './homePage.js';
 
-
-
 export async function saveToLocalStorage(event) {
-   const id = event.currentTarget.getAttribute('data-id');
-   const passSvg = event.currentTarget.querySelector('use');
-   passSvg.setAttribute('href', `${iconsPath}#checkmark`);
-   event.currentTarget.setAttribute('disabled', 'true');
-   const productData = {};
+  const id = event.currentTarget.getAttribute('data-id');
+  const buttons = document.querySelectorAll(`button[data-id='${id}']`);
+  buttons.forEach(button => {
+    const passSvg = button.querySelector('use');
+    passSvg.setAttribute('href', `${iconsPath}#checkmark`);
+    button.setAttribute('disabled', 'true');
+  });
+  console.log(buttons);
+  const productData = {};
 
    try {
     const product = await getProducttById(id);
