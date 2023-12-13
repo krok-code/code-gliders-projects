@@ -71,6 +71,7 @@ function onDeleteItemClick(event) {
 
 function renderCartProduct(product) {
   let { id, name, img, category, size, price } = product;
+  const cleanedCategory = category.replace(/_/g, ' ');
   return `
       <li class="cart-shopping-item" data-product-id=${id}>
       <img
@@ -89,7 +90,7 @@ function renderCartProduct(product) {
         <ul class="cart-properties-list">
           <li class="cart-properties-item">
             <h3 class="cart-properties-caption">Category:</h3>
-            <p class="cart-properties-subtitle">${category}</p>
+            <p class="cart-properties-subtitle">${cleanedCategory}</p>
           </li>
           <li class="cart-properties-item">
             <h3 class="cart-properties-caption">Size:</h3>

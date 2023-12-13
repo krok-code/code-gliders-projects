@@ -33,6 +33,7 @@ export function onClickOutModalProduct(event) {
 
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
+  const cleanedCategory = category.replace(/_/g, ' ');
   const isInCart = arrProducts.some(product => product.id === _id);
 
   return `
@@ -57,7 +58,7 @@ export function onRenderModalProduct(product) {
                       <ul class="modal-product-list">
                           <li class="modal-product-item">
                               <h3 class="modal-product-caption">Category:</h3>
-                              <p class="modal-product-content">${category}</p>
+                              <p class="modal-product-content">${cleanedCategory}</p>
                           </li>
                           <li class="modal-product-item">
                               <h3 class="modal-product-caption">Size:</h3>
