@@ -18,7 +18,7 @@ export function subscribeMailNewProduct(event) {
     .then(response => {
       if (response.status === 201) {
         Notify.success(
-          'Welcome to the Food Boutique! 🥦🍓 With Food Boutique, you are not just subscribing to food, you are signing up for a fresher, fitter, and happier you. Get ready to elevate your wellness journey, one bite at a time!'
+          'Email saved'
         );
       } else {
         Notify.failure('Oops, something went wrong...');
