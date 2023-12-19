@@ -8,8 +8,8 @@ function toggleScrollToTopButton() {
   }
 }
 
-function scrollTop() {
-  window.scrollTop({
+function scrollToTop() {
+  window.scrollTo({
     top: 0,
     behavior: 'smooth',
   });
