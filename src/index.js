@@ -7,7 +7,8 @@ import './js/add-to-the-cart.js';
 import './js/button-cart.js';
 import './js/pagination.js';
 import './js/model/cards.js';
-import './js/model/modal-products.js'
+import './js/model/modal-products.js';
 import './js/footer.js';
 import './js/model/sorry.js';
+import './js/scroll-to-up.js';
 import './js/actions-cards.js';

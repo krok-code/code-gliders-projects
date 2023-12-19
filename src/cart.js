@@ -3,3 +3,4 @@ import './js/actions-cart.js';
 import './js/localStorage.js';
 import './js/order-forms.js';
 import './js/footer.js';
+import './js/scroll-to-up.js';

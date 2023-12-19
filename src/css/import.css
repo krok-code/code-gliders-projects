@@ -11,6 +11,7 @@
 @import url('./standart/container.css');
 @import url('./model/cart-body.css');
 @import url('./model/filters.css');
+@import url('./model/scroll-to-up');
 @import url('./model/footer.css');
 @import url('./model/header.css');
 @import url('./model/hero.css');
